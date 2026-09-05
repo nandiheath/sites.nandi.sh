@@ -19,7 +19,7 @@ sites/
       index.html
 ```
 
-Directory names are stable URL slugs: lowercase letters, digits, and single hyphens. Site assets must use root-aware URLs such as `/notes/styles.css`.
+Directory names are stable URL slugs: lowercase letters, digits, and single hyphen or underscore separators. Site assets must use root-aware URLs such as `/notes/styles.css`.
 
 ## Local workflow
 

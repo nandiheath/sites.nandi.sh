@@ -10,22 +10,22 @@ import (
 func TestBuildPublishesHomeAndNestedSites(t *testing.T) {
 	root := t.TempDir()
 	writeSite(t, root, "home", "Home", "The root site", `<main>`+siteListMarker+`</main>`)
-	writeSite(t, root, "notes", "Notes", "Small references", `<h1>Notes</h1>`)
+	writeSite(t, root, "2027sbd_hokkaido", "Hokkaido", "Snowboard trip", `<h1>Hokkaido</h1>`)
 
 	output := filepath.Join(root, "dist")
 	sites, err := Build(root, output)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(sites) != 2 || sites[0].URLPath != "/" || sites[1].URLPath != "/notes/" {
+	if len(sites) != 2 || sites[0].URLPath != "/" || sites[1].URLPath != "/2027sbd_hokkaido/" {
 		t.Fatalf("unexpected site routes: %#v", sites)
 	}
 
 	home := readFile(t, filepath.Join(output, "index.html"))
-	if !strings.Contains(home, `href="/notes/"`) || !strings.Contains(home, "Small references") {
+	if !strings.Contains(home, `href="/2027sbd_hokkaido/"`) || !strings.Contains(home, "Snowboard trip") {
 		t.Fatalf("home page does not link the nested site: %s", home)
 	}
-	if got := readFile(t, filepath.Join(output, "notes", "index.html")); got != `<h1>Notes</h1>` {
+	if got := readFile(t, filepath.Join(output, "2027sbd_hokkaido", "index.html")); got != `<h1>Hokkaido</h1>` {
 		t.Fatalf("nested site published at unexpected content: %s", got)
 	}
 	if got := readFile(t, filepath.Join(output, "CNAME")); got != Domain+"\n" {

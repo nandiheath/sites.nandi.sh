@@ -1,0 +1,38 @@
+SBD HOKKAIDO 2027 — PUBLIC SANITIZED SITE
+
+Route: /2027sbd_hokkaido/; discovered automatically on the home page.
+Publication contract: SNS-M003. Deployment evidence is recorded in PROJECT_STATUS.md after the release is observed.
+
+RUN FROM THE REPOSITORY ROOT
+  make serve
+  make ci
+Open http://127.0.0.1:4173/2027sbd_hokkaido/
+
+The Go standard-library builder copies public/ to root dist/2027sbd_hokkaido/. No Node, npm, Vite, backend, API key or additional build step is required. Rebuild after source edits; make serve builds only at startup. The six sections use URL hashes. HTML asset URLs target the exact route; module imports and artwork references are relative. Serve via HTTP, not file://.
+
+SOURCE
+site.json holds home-page metadata. public/index.html is the zh-HK entry point. public/js/main.js contains the itinerary, hotels, navigation, checklist, charter estimate and calendar export. transport.js provides four route selectors and charter enquiry tools; mountains.js provides five resort comparisons and ticket planning; explore.js provides eight daily food/sightseeing proposals with primary sources. effects.js implements local snowfall, terrain parallax and motion preferences. style.css implements the responsive theme and print view. alpine.svg is original decorative mathematical terrain, not actual geographic data.
+
+PRIVACY BOUNDARY
+The user authorized public publishing with personal details removed. Participant names, individual attendance/booking reports and private source-document links must not enter source, documentation, generated assets or Git commits. Travel dates, hotel itinerary and the target group size remain public by explicit choice. No public participant roster or booking-status feed exists. noindex is retained as a crawler preference, not access control.
+Only current public/ source and site metadata are built. Obsolete standalone dist folders, dependencies and archives were not imported into this publication branch.
+The personal checklist uses localStorage on the current origin only. It does not sync or submit data. Moving origins does not transfer progress. Storage failure degrades to session-only progress with an explicit notice. System fonts and local artwork require no external font or image services. External map and source links open on request; there is no analytics, embedded tracker, live weather fetch or booking submission.
+
+CONTENT AND FRESHNESS
+Travel: March 6–13, 2027. Research snapshot: September 4, 2026. This is an editorial snapshot, not a live booking or weather system. Edit the relevant JS arrays and rebuild. Recommendations are proposals, not reservations.
+- Target group size is twelve; actual attendance is coordinated privately.
+- Shin Furano Prince is the selected March 6–9 base; OMO7 Asahikawa is the March 9–13 base. Hotel selection does not imply anyone has booked.
+- Flight details are not published, so pickup times are not invented.
+- March 9 is a rest/transfer/zoo day. Asahidake is conditional and expert-only.
+- Powder Belt's official 2026–27 five-day ticket is JPY 40,000 and covers Furano, Tomamu and Kamui only. Individual resort/rental references are explicitly dated 2025–26, not 2027 quotes.
+- Current Taisetsu Liner public airport bus stops outside OMO7; it is not a hotel shuttle. 2027 timetable and snowboard-plus-suitcase acceptance need checking.
+- Official zoo calendar lists winter 2027 hours 10:30–15:30, last entry 15:00. Penguin walks are conditional. The JPY 1,400 adult increase starts April 29, after this trip; JPY 1,000 is the planning basis.
+- The official hotel promotion includes members-only breakfast and onsen tickets, with a September 15, 2026 noon JST / 11am HKT booking deadline. Price and availability are not guaranteed. Its official URL remains on the banner and hotel card.
+- Food recommendations use direct Tabelog English listings, exact-venue score/review-count snapshots and official operating information. Seventeen verified score/count snapshots plus one unverified current buffet span eighteen evidence rows. Cheese-shop/pizza listings and duplicate Izakaya Tenkin registrations remain distinct. Tenkin Honten is not an active dinner proposal because its official notice reports temporary closure. Two Ningle Terrace blogs are sightseeing sources only.
+
+OBSERVED LOCAL VERIFICATION
+- make ci passed builder tests, go vet and the two-site build. The route test verifies underscore-slug output and home discovery.
+- Actual Chromium exercised all eight itinerary dates, four transport routes, eight food selectors, skill filters and ticket presets. Observed preset totals: JPY 23,400 / 31,900 / 33,400; optional night: JPY 35,200.
+- Personal checklist persistence and charter division were exercised. The downloaded calendar contained eight tentative all-day events, with final exclusive end March 14 and maximum physical UTF-8 line length 75 bytes.
+- Professional-banner screenshots were inspected on desktop and mobile, with no document/title overflow down to 320px. Motion OFF persisted, reduced-motion disabled effects, hidden sections cleared snowfall, and real background-tab switching paused/resumed the hero.
+- The publication-specific source/output privacy scan, sanitized browser acceptance, pull request and live release evidence are tracked under SNS-M003 and PROJECT_STATUS.md.

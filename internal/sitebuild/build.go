@@ -21,7 +21,7 @@ const (
 	siteListMarker = "<!-- SITE_LIST -->"
 )
 
-var slugPattern = regexp.MustCompile(`^[a-z0-9]+(?:-[a-z0-9]+)*$`)
+var slugPattern = regexp.MustCompile(`^[a-z0-9]+(?:[-_][a-z0-9]+)*$`)
 
 type Manifest struct {
 	Title       string `json:"title"`
