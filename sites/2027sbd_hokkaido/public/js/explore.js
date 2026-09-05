@@ -1,6 +1,7 @@
 import { regions as furanoRegions, venues as furanoVenues } from './places-furano.js';
 import { regions as asahikawaRegions, venues as asahikawaVenues } from './places-asahikawa.js';
 import { createVenueMap } from './venue-map.js';
+import { members } from './members.js';
 
 const regions = [...furanoRegions, ...asahikawaRegions].sort((a, b) => ['furano', 'asahikawa', 'airport'].indexOf(a.id) - ['furano', 'asahikawa', 'airport'].indexOf(b.id));
 const venues = [...furanoVenues, ...asahikawaVenues];
@@ -86,7 +87,7 @@ export function renderExplore(container) {
     </div>
     <p id="explore-selection-status" class="meta" role="status" aria-live="polite" aria-atomic="true"></p>
     <div class="location-layout"><aside class="location-map-panel" aria-label="地點地圖"><div id="venue-map"></div><p class="map-distance-note">連線及距離只係直線參考，唔係步行／行車路線。雪路、斜路同過河可能要兜路；用 Google Maps 查實際交通，唔好按直線距離估時間。</p></aside><section id="location-results" class="venue-list" aria-label="地區食店與景點"></section></div>
-    <aside class="callout location-advice"><strong>一團人，先問位再出發。</strong><p>餐位及接送未確認。按實際人數（11 人出席／最多 13 人）、過敏、預算及分桌需要訂位；全程不自駕，的士／包車先約。2027 營業、價格及座位請再核實。</p></aside>
+    <aside class="callout location-advice"><strong>一團人，先問位再出發。</strong><p>餐位及接送未確認。按實際人數（${members.filter(member => member.attendance === 'O').length} 人出席／最多 ${members.length} 人）、過敏、預算及分桌需要訂位；全程不自駕，的士／包車先約。2027 營業、價格及座位請再核實。</p></aside>
     <details class="card location-sources"><summary>地圖、評分及資料點睇</summary><p>Google 同 Tabelog 都係 5 分制，但用戶群及計分方法不同，唔直接混合平均。每個平台獨立顯示查核日期、評價數及原頁連結；分數係人工查核快照，唔係即時資料。</p><p>「未核實」唔代表冇人食過，亦唔係零分。酒店餐廳以官方店舖資料確認，冇獨立食店評分就保留空白；唔會套用酒店總分、另一間分店或歷史餐廳分數。食物推薦唔採用旅遊博客口味評語。</p><p>地圖由本機 Leaflet 顯示，按「載入地圖」後才向 OpenStreetMap 要求圖磚；不讀取你的位置。相同酒店／航廈內店舖可能共用定位，請以樓層資料找店。餐廳卡及外部路線連結不依賴圖磚載入。</p></details>`;
 
   const panel = container.querySelector('#location-results');

@@ -3,16 +3,24 @@ export const members = [
   ['JO', 'O', 'O', 'O'],
   ['CAR', 'O', 'O', 'O'],
   ['BUN', 'O', 'O', 'O'],
-  ['STP', 'O', '?', 'O'],
+  ['NULL', 'O', '?', 'O'],
   ['STEPH', 'O', '?', '?'],
-  ['WANYI', '?', '?', '?'],
-  ['BEAR', 'O', '?', 'O'],
-  ['KAY', 'O', '?', '?'],
+  ['WANYI', 'O', '?', '?'],
+  ['BEAR', 'O', 'O', 'O'],
+  ['KAY', 'O', 'O', 'O'],
   ['MC', 'O', 'O', 'O'],
   ['NAT', 'O', 'O', 'O'],
-  ['SMALL', 'O', '?', '?'],
+  ['SMALL', 'O', 'O', 'O'],
   ['HOMER', '?', '?', '?'],
 ].map(([name, attendance, furano, omo]) => ({ name, attendance, furano, omo }));
+
+const roommatePairs = [
+  ['SMALL', 'STEPH'],
+  ['BUN', 'CAR'],
+  ['MC', 'NAT'],
+  ['JO', 'YL'],
+  ['BEAR', 'KAY'],
+];
 
 const columns = [
   { id: 'attendance', label: '出席', detail: '3/6–13' },
@@ -24,7 +32,7 @@ const storageKey = 'sbd-hokkaido-2027-member-draft-v1';
 const stages = [
   { title: '下一輪：交通', items: [
     ['航班已定', '確認去回程機場及時間、雪袋寄艙額；訂單及個人資料私下傳。'],
-    ['接送安排', '機場 → 富良野、富良野 → 旭川、旭川 → 機場；按 11 人確認／最多 13 人詢價，連板袋一齊問。'],
+    ['接送安排', `機場 → 富良野、富良野 → 旭川、旭川 → 機場；按 ${members.filter(member => member.attendance === 'O').length} 人確認／最多 ${members.length} 人詢價，連板袋一齊問。`],
     ['每日日間接駁', '雪場去回班次、預約、滿座後備與集合時間。'],
   ] },
   { title: '之後：上雪安排', items: [
@@ -59,9 +67,10 @@ export function renderMembers(container) {
 
   container.innerHTML = `<header class="section-intro"><div><p class="eyebrow">MEMBERS / 團友確認表</p><h2 class="section-title">邊個去？酒店訂咗未？</h2><p class="muted">公開名單共 ${members.length} 人。O = 已確認，? = 待確認；兩間酒店分開記錄，唔代表已付款或包含同一房型。</p></div></header>
     <div class="member-summary" id="member-summary" aria-live="polite"></div>
-    <div class="callout member-privacy"><strong>公開快照・本機草稿分開</strong><p>名稱、出席及訂房狀態已獲授權公開。下面可改作本機跟進，但只儲存在這個瀏覽器，<strong>不會同步其他團友或更新網站公開資料</strong>。要改公開快照，請交主辦人更新網站。</p><p id="member-storage-note" class="meta"></p></div>
+    <div class="callout member-privacy"><strong>公開快照・本機草稿分開</strong><p>名稱、出席、訂房狀態及同房配對已獲授權公開。下面確認表可改作本機跟進，但只儲存在這個瀏覽器，<strong>不會同步其他團友或更新網站公開資料</strong>。同房配對只供查閱；要改公開快照，請交主辦人更新網站。</p><p id="member-storage-note" class="meta"></p></div>
     <div class="member-table-wrap" role="region" aria-label="團友出席與兩間酒店確認狀態" tabindex="0"><table class="member-table"><caption>公開快照以主辦人提供的 O / ? 記錄為準；目前顯示可包含本機草稿。</caption><thead><tr><th scope="col">團友</th>${columns.map(column => `<th scope="col">${column.label}<small>${column.detail}</small></th>`).join('')}</tr></thead><tbody>${members.map(member => `<tr><th scope="row">${member.name}</th>${columns.map(column => `<td><select data-member="${member.name}" data-member-column="${column.id}" aria-label="${member.name} ${column.label}">${states.map(([state, label]) => `<option value="${state}"${valueFor(member, column.id) === state ? ' selected' : ''}>${state} ${label}</option>`).join('')}</select></td>`).join('')}</tr>`).join('')}</tbody></table></div>
     <div class="member-tools"><p id="member-draft-status" class="meta" role="status" aria-live="polite"></p><button type="button" class="button secondary" id="member-reset">還原公開快照</button></div>
+    <section class="member-roommates" aria-labelledby="member-roommates-title"><header class="section-intro"><div><p class="eyebrow">ROOMMATES / 同房安排</p><h3 id="member-roommates-title">今次同邊個住？</h3><p class="muted">主辦人提供的 ${roommatePairs.length} 組同房配對；只記錄同行安排，唔代表兩間酒店已確認房型、房號或訂房。其他團友配對未提供。</p></div></header><div class="member-stage-grid">${roommatePairs.map((pair, index) => `<article class="card member-stage"><p class="eyebrow">配對 0${index + 1}</p><h4>${pair.join(' + ')}</h4></article>`).join('')}</div></section>
     <section class="member-next" aria-labelledby="member-next-title"><header class="section-intro"><div><p class="eyebrow">NEXT CHECKS / 後續跟進計劃</p><h3 id="member-next-title">酒店搞掂，之後逐輪確認。</h3><p class="muted">以下係之後要逐位團友收齊的項目，<strong>未開始收集，不當作已完成</strong>。有實際資料後再更新公開狀態；私人內容另行收集。</p></div></header><div class="member-stage-grid">${stages.map((stage, index) => `<article class="card member-stage"><div class="card-top"><span class="eyebrow">0${index + 1} / FOLLOW-UP</span><span class="tag">待開始</span></div><h4>${stage.title}</h4><ul class="detail-list">${stage.items.map(([title, note]) => `<li><strong>${title}</strong><p>${note}</p></li>`).join('')}</ul></article>`).join('')}</div></section>`;
 
   function update() {
