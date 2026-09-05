@@ -2,6 +2,7 @@ package sitebuild
 
 import (
 	"bytes"
+	"crypto/sha256"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -16,9 +17,10 @@ import (
 )
 
 const (
-	Domain         = "sites.nandi.sh"
-	homeSlug       = "home"
-	siteListMarker = "<!-- SITE_LIST -->"
+	Domain          = "sites.nandi.sh"
+	homeSlug        = "home"
+	siteListMarker  = "<!-- SITE_LIST -->"
+	assetBaseMarker = "{{ASSET_BASE}}"
 )
 
 var slugPattern = regexp.MustCompile(`^[a-z0-9]+(?:[-_][a-z0-9]+)*$`)
@@ -80,6 +82,9 @@ func Build(root, output string) ([]Site, error) {
 		if err := copyContents(site.PublicDir, target); err != nil {
 			return nil, fmt.Errorf("copy site %q: %w", site.Slug, err)
 		}
+		if err := versionAssets(target, site.URLPath); err != nil {
+			return nil, fmt.Errorf("version assets for %q: %w", site.Slug, err)
+		}
 	}
 
 	if err := renderHome(filepath.Join(stage, "index.html"), sites); err != nil {
@@ -99,6 +104,72 @@ func Build(root, output string) ([]Site, error) {
 		return nil, fmt.Errorf("publish staged output: %w", err)
 	}
 	return sites, nil
+}
+
+// Opted-in entry documents stay at their stable route. All dependencies move
+// together, so relative ES-module imports and CSS URLs share one cache version.
+func versionAssets(target, urlPath string) error {
+	indexPath := filepath.Join(target, "index.html")
+	document, err := os.ReadFile(indexPath)
+	if err != nil {
+		return err
+	}
+	if !bytes.Contains(document, []byte(assetBaseMarker)) {
+		return nil
+	}
+	entries, err := os.ReadDir(target)
+	if err != nil {
+		return err
+	}
+	assets, err := os.MkdirTemp(target, ".assets-")
+	if err != nil {
+		return err
+	}
+	for _, entry := range entries {
+		if entry.Name() == "index.html" {
+			continue
+		}
+		if err := os.Rename(filepath.Join(target, entry.Name()), filepath.Join(assets, entry.Name())); err != nil {
+			return err
+		}
+	}
+	digest := sha256.New()
+	// WalkDir sorts paths; length framing distinguishes names and file contents.
+	err = fs.WalkDir(os.DirFS(assets), ".", func(path string, entry fs.DirEntry, walkErr error) error {
+		if walkErr != nil {
+			return walkErr
+		}
+		if entry.IsDir() {
+			return nil
+		}
+		info, err := entry.Info()
+		if err != nil {
+			return err
+		}
+		fmt.Fprintf(digest, "%d:%s:%d:", len(path), path, info.Size())
+		file, err := os.Open(filepath.Join(assets, filepath.FromSlash(path)))
+		if err != nil {
+			return err
+		}
+		_, copyErr := io.Copy(digest, file)
+		closeErr := file.Close()
+		if copyErr != nil {
+			return copyErr
+		}
+		return closeErr
+	})
+	if err != nil {
+		return err
+	}
+	version := fmt.Sprintf("%x", digest.Sum(nil))
+	if err := os.Mkdir(filepath.Join(target, "assets"), 0o755); err != nil {
+		return err
+	}
+	if err := os.Rename(assets, filepath.Join(target, "assets", version)); err != nil {
+		return err
+	}
+	document = bytes.ReplaceAll(document, []byte(assetBaseMarker), []byte(urlPath+"assets/"+version+"/"))
+	return os.WriteFile(indexPath, document, 0o644)
 }
 
 func discover(sitesDir string) ([]Site, error) {
