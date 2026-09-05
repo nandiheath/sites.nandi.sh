@@ -5,12 +5,12 @@ export const members = [
   ['BUN', 'O', 'O', 'O'],
   ['NULL', 'O', '?', 'O'],
   ['STEPH', 'O', '?', '?'],
-  ['WANYI', '?', '?', '?'],
-  ['BEAR', 'O', '?', 'O'],
-  ['KAY', 'O', '?', '?'],
+  ['WANYI', 'O', '?', '?'],
+  ['BEAR', 'O', 'O', 'O'],
+  ['KAY', 'O', 'O', 'O'],
   ['MC', 'O', 'O', 'O'],
   ['NAT', 'O', 'O', 'O'],
-  ['SMALL', 'O', '?', '?'],
+  ['SMALL', 'O', 'O', 'O'],
   ['HOMER', '?', '?', '?'],
 ].map(([name, attendance, furano, omo]) => ({ name, attendance, furano, omo }));
 
@@ -32,7 +32,7 @@ const storageKey = 'sbd-hokkaido-2027-member-draft-v1';
 const stages = [
   { title: '下一輪：交通', items: [
     ['航班已定', '確認去回程機場及時間、雪袋寄艙額；訂單及個人資料私下傳。'],
-    ['接送安排', '機場 → 富良野、富良野 → 旭川、旭川 → 機場；按 11 人確認／最多 13 人詢價，連板袋一齊問。'],
+    ['接送安排', `機場 → 富良野、富良野 → 旭川、旭川 → 機場；按 ${members.filter(member => member.attendance === 'O').length} 人確認／最多 ${members.length} 人詢價，連板袋一齊問。`],
     ['每日日間接駁', '雪場去回班次、預約、滿座後備與集合時間。'],
   ] },
   { title: '之後：上雪安排', items: [
