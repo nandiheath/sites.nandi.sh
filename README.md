@@ -19,7 +19,9 @@ sites/
       index.html
 ```
 
-Directory names are stable URL slugs: lowercase letters, digits, and single hyphen or underscore separators. Site assets must use root-aware URLs such as `/notes/styles.css`.
+Directory names are stable URL slugs: lowercase letters, digits, and single hyphen or underscore separators. Non-versioned sites use root-aware asset URLs such as `/notes/styles.css`.
+
+For cache-safe releases, use `{{ASSET_BASE}}` for every local asset URL in a site's root `public/index.html`, for example `<script type="module" src="{{ASSET_BASE}}js/main.js"></script>`. This opts the site into content-versioned assets: the entry document stays at `/<slug>/`, while every other public file moves under `/<slug>/assets/<sha256>/`. Relative imports, CSS URLs and vendor dependencies stay together without source rewriting. Any asset-content or filename change creates a new base; unchanged assets keep it stable. Keep navigation URLs pointed at stable site routes, not the asset base. Sites without the marker retain their existing output layout. Preview the built output, not raw source.
 
 ## Local workflow
 
