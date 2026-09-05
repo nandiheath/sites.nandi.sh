@@ -334,6 +334,7 @@ details.card { margin-top: 0; padding: 22px 25px; }
 .member-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 15px; margin: 18px 0 38px; }
 .member-tools p { margin: 0; }
 .member-tools .button { font-size: 11px; padding: 12px 16px; }
+.member-roommates { margin-bottom: 38px; }
 .member-stage-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .member-stage h4 { font-size: 18px; }
 .member-stage li > strong { color: #c3dbe9; font-size: 13px; font-weight: 550; }
