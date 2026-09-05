@@ -52,5 +52,5 @@ Create the root site, nested-site assembly contract, local CI target, and merge-
 - Summary: Implemented the standard-library site assembler, responsive root page, local validation contract, and merge-only branch publisher.
 - Files changed: `.github/workflows/pages.yml`, `.gitignore`, `AGENTS.md`, `Makefile`, `PROJECT_STATUS.md`, `README.md`, `cmd/`, `go.mod`, `internal/`, `scripts/`, `sites/`, `tasks/`.
 - Observed verification: `make ci` passed tests, vet, and a one-site production build. The fixture test observed `/notes/` assembly and route-collision rejection. Headless Chrome inspection passed at 1440×1000 and an emulated 390×844 viewport with document `scrollWidth` equal to 390.
-- Delivery: Pending pull request.
+- Delivery: https://github.com/nandiheath/sites.nandi.sh/pull/1
 - Follow-ups:
