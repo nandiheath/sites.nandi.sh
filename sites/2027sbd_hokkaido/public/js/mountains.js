@@ -308,7 +308,7 @@ export function renderMountains(container) {
       <div class="section-intro">
         <p class="eyebrow">TICKETS / 每人預算</p>
         <h3 id="mountain-ticket-heading">五日雪票計算機</h3>
-        <p>3/7、8、10、11、12 上雪；3/9 動物園及轉酒店。短時票不包課程，先問教練所需票種。</p>
+        <p>3/7、8、10、11、12 上雪；3/9 休息、可選觀光及轉酒店，動物園不是必去。短時票不包課程，先問教練所需票種。</p>
       </div>
       <div class="pill-row" role="group" aria-label="套用五日雪票方案">
         <button class="pill active" type="button" data-mountain-preset="beginner" aria-pressed="true">初學・短時練習</button>

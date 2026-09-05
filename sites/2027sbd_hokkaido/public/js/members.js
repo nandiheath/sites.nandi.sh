@@ -32,7 +32,7 @@ const storageKey = 'sbd-hokkaido-2027-member-draft-v1';
 const stages = [
   { title: '下一輪：交通', items: [
     ['航班已定', '確認去回程機場及時間、雪袋寄艙額；訂單及個人資料私下傳。'],
-    ['交通安排', `3/6 各自訂機場巴士；只為 3/9 富良野 → 動物園 → OMO7 按 ${members.filter(member => member.attendance === 'O').length} 人確認／最多 ${members.length} 人詢包車，連板袋一齊問。3/13 各自訂巴士／JR，沒有團體直送。`],
+    ['交通安排', `3/6 各自訂機場巴士；只為 3/9 新富良野王子 → 自選景點及午餐 → OMO7 按 ${members.filter(member => member.attendance === 'O').length} 人確認／最多 ${members.length} 人詢觀光包車，連板袋一齊問。動物園是選項，停靠及改線條款預先敲定。3/13 各自訂巴士／JR，沒有團體直送。`],
     ['每日日間接駁', '雪場去回班次、預約、滿座後備與集合時間。'],
   ] },
   { title: '之後：上雪安排', items: [
