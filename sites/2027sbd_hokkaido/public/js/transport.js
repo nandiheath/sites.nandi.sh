@@ -1,3 +1,5 @@
+import { members } from './members.js';
+
 const transportSources = {
   charter: ["SkyExpress｜官方包車詢價", "https://book.skyexpress.jp/en/order"],
   access: [
@@ -87,11 +89,11 @@ const transportRoutes = [
     tag: "首選：預約包車",
     duration: "道路段約 3–4.5 小時，另計入境及等候",
     intro:
-      "目標 12 人，首選包車直達 Shin Furano Prince Hotel。先收齊航班、航廈及行李資料，再向車商詢價。",
+      `名單 ${members.length} 人，首選包車直達 Shin Furano Prince Hotel。先收齊出席、航班、航廈及行李資料，再向車商詢價。`,
     steps: [
       [
         "訂車",
-        "報價列明延誤等候及途中休息。季節直達巴士則須確認 2026–27 營業日、12 個座位及新富良野王子站。",
+        `報價列明延誤等候及途中休息。季節直達巴士則須確認 2026–27 營業日、最多 ${members.length} 個座位及新富良野王子站。`,
       ],
       [
         "機場集合",
@@ -142,7 +144,7 @@ const transportRoutes = [
     fallback:
       "查當季 Powder Belt Liner 富良野 → 動物園／旭川，遊園後交通另訂。行李無處放則先乘 Lavender 到旭川、OMO7 寄物，再坐市區巴士；時間不足就取消動物園。",
     warning:
-      "動物園可能臨時休園。Powder Belt Liner ¥4,500 為 2025–26 舊季單程價；Lavender 免預約，不保證 12 人及板袋同班。",
+      `動物園可能臨時休園。Powder Belt Liner ¥4,500 為 2025–26 舊季單程價；Lavender 免預約，不保證 ${members.length} 人及板袋同班。`,
     extra: `<details class="card"><summary>公共交通備案：先寄行李</summary><p>Lavender 2026/4 路線：新富良野王子 → 旭川站約 2 小時，等車另計、不設訂位。OMO7 可入住前寄物，先報大件數量。</p><p>園方 2026/8 指引：旭川站前 6 號站、41／47 線到動物園約 40 分鐘。重查 2027 班表及末班，分車時保持聯絡；Powder Belt Liner 停靠不代表等候遊園。</p>${transportLinks(["lavender", "zooAccess", "omo", "zooTickets"])}</details>`,
     sources: ["charter", "zooBus", "zoo", "zooAccess", "meeting"],
     maps: [
@@ -173,7 +175,7 @@ const transportRoutes = [
       ],
     ],
     guidance:
-      "向酒店確認每人板袋容量、申請截止、費用及上車位置。2025–26 住客接駁須前晚 22:00 前申請；12 人應更早登記。備用的士也要預先申報板袋。",
+      `向酒店確認每人板袋容量、申請截止、費用及上車位置。2025–26 住客接駁須前晚 22:00 前申請；${members.length} 人應更早登記。備用的士也要預先申報板袋。`,
     fallback:
       "滿席可保留有車的雪場，或預約分組的士／包車；雪場或交通停運就留市區。旭岳須按嚮導判斷取消，不能自行另找路上山。",
     warning:
@@ -225,9 +227,9 @@ const transportRoutes = [
   },
 ];
 
-const charterEnquiry = `Subject: Private transfers for a target group of 12 — Hokkaido, 6–13 March 2027
+const charterEnquiry = `Subject: Private transfers for up to ${members.length} passengers — Hokkaido, 6–13 March 2027
 
-Hello, please quote the following private transfers with a professional driver. Our target group size is 12 passengers; final attendance is still being confirmed. We will not drive ourselves.
+Hello, please quote the following private transfers with a professional driver. Our public planning snapshot lists ${members.filter(member => member.attendance === 'O').length} attending and ${members.filter(member => member.attendance === '?').length} undecided, up to ${members.length} passengers; please quote both confirmed and maximum group sizes. We will not drive ourselves.
 
 1. 6 March 2027: New Chitose Airport (CTS) to Shin Furano Prince Hotel, Nakagoryo, Furano. Flight numbers, arrival times and domestic/international terminal will be provided once confirmed.
 2. 9 March 2027: Shin Furano Prince Hotel to Asahiyama Zoo, with approximately 3 hours for the visit, then OMO7 Asahikawa, 6-jo-dori 9-chome. Please advise a winter-safe pickup time. The published 2027 winter zoo hours are 10:30–15:30, last entry 15:00, subject to change.
@@ -235,7 +237,7 @@ Hello, please quote the following private transfers with a professional driver. 
 
 Please quote these three main transfers separately and as a package. If available, quote optional return resort transfers on 10–12 March separately (Kamui / Pippu / Santa; Asahidake only if conditions and our guide permit).
 
-Please provide vehicle type and usable passenger AND cargo capacity together. A 14-seat description alone is not sufficient. Please check capacity for 12 passengers, up to 12 large suitcases, 12 snowboard bags and day bags; final counts, dimensions and weights will follow. Propose a larger vehicle or two professionally driven vehicles if needed, without blocking aisles or exits.
+Please provide vehicle type and usable passenger AND cargo capacity together. A 14-seat description alone is not sufficient; confirm whether the driver is included in that count. Please check capacity for up to ${members.length} passengers, ${members.length} large suitcases, ${members.length} snowboard bags and day bags; final counts, dimensions and weights will follow. Propose a larger vehicle or two professionally driven vehicles if needed, without blocking aisles or exits.
 
 For 9 March, please include zoo waiting time, bus parking arrangements/required advance application, agreed entrance and pickup point, and whether luggage can remain securely in the vehicle while we visit. Please explain custody/liability and whether the same vehicle waits throughout.
 
@@ -245,12 +247,12 @@ Thank you.`;
 export function renderTransport(container) {
   container.innerHTML = `
     <header class="section-intro"><p class="eyebrow">TRANSPORT / 非自駕交通</p><h2 class="section-title">四段交通，先訂往返及板袋位。</h2><p class="muted">三段大移動優先包車；旭川雪場按程度分組。以下未出票、未訂車。</p></header>
-    <div class="callout warning"><strong>規劃基準 · 2026/9/4</strong><p>目標 12 人，未全數確認。「14 座」不保證裝得下 12 人＋大箱＋板袋；車程為冬季估算，2027 班次及座位須另查。</p></div>
+    <div class="callout warning"><strong>規劃基準 · 公開名單快照</strong><p>${members.filter(member => member.attendance === 'O').length} 人出席、${members.filter(member => member.attendance === '?').length} 人待確認，最多 ${members.length} 人。「14 座」先問是否包括司機，亦不保證裝得下全團＋大箱＋板袋；車程為冬季估算，2027 班次及座位須另查。</p></div>
     <div class="pill-row" role="group" aria-label="選擇交通路段">${transportRoutes.map((route, index) => `<button type="button" class="pill${index === 0 ? " active" : ""}" id="transport-button-${route.id}" data-transport-route="${route.id}" aria-pressed="${index === 0}" aria-controls="transport-route-panel">${route.label}</button>`).join("")}</div>
     <p class="meta" id="transport-route-status" role="status" aria-live="polite"></p>
     <div id="transport-route-panel" class="stack" role="region" aria-labelledby="transport-route-title"></div>
     <div class="card-grid two">
-      <details class="card"><summary>包車付款前：人數、行李及條款</summary><ol class="numbered-list"><li><strong>容量：</strong>實際人數、箱／板袋尺寸，索取車型及行李艙照片。</li><li><strong>報價：</strong>三段分項，列動物園等候、停車、過路費及司機加班。</li><li><strong>條款：</strong>誤機、取消、封路、改期及額外住宿責任。</li><li><strong>覆核：</strong>出發前一週及前晚確認集合點、司機電話、天氣及營運。</li></ol><p class="meta">原構想 ¥195,000–220,000 並非車商報價，範圍及車型未定，不可直接除以 12 收款。</p>${transportLinks(["charter", "access"])}</details>
+      <details class="card"><summary>包車付款前：人數、行李及條款</summary><ol class="numbered-list"><li><strong>容量：</strong>實際人數、箱／板袋尺寸，索取車型及行李艙照片。</li><li><strong>報價：</strong>三段分項，列動物園等候、停車、過路費及司機加班。</li><li><strong>條款：</strong>誤機、取消、封路、改期及額外住宿責任。</li><li><strong>覆核：</strong>出發前一週及前晚確認集合點、司機電話、天氣及營運。</li></ol><p class="meta">原構想 ¥195,000–220,000 並非車商報價，範圍及車型未定，不可直接按名單人數收款。</p>${transportLinks(["charter", "access"])}</details>
       <article class="card"><p class="eyebrow">CHARTER ENQUIRY</p><h3>包車詢價信</h3><p>複製英文草稿，補航班及行李後自行寄出；不會自動訂車。</p><label for="transport-enquiry">英文詢價內容</label><textarea id="transport-enquiry" class="transport-enquiry" rows="12" readonly lang="en" spellcheck="false"></textarea><div class="pill-row"><button type="button" class="button" id="transport-copy">複製詢價信</button><button type="button" class="button secondary" id="transport-select">選取全文</button></div><p id="transport-copy-status" role="status" aria-live="polite" class="meta">自動複製失敗時，可選取全文手動複製。</p></article>
     </div>`;
 

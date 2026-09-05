@@ -6,7 +6,7 @@
 - `sites/home/public/` owns the root page. Future `sites/<slug>/public/` packages publish below `/<slug>/` and appear automatically on the root page.
 - Cloudflare DNS is declared, applied, and verified from the private infrastructure repository.
 - SNS-M002 completed the trip implementation locally; SNS-M003 subsequently sanitized and published it. `sites/2027sbd_hokkaido/public/` owns the trip, with home-page discovery, concise Hong Kong copy, snowboard-focused content, a navy/ice-blue design and controllable snowfall/parallax.
-- SNS-M003 is complete. The public trip is live at https://sites.nandi.sh/2027sbd_hokkaido/ through merged pull request #4. Participant names, individual attendance/booking reports and private source-document links are excluded from source and generated assets. Travel dates and hotel itinerary remain public by explicit user choice.
+- SNS-M003 published the trip through merged pull request #4. SNS-M004 now implements a location-based restaurant/map guide and the explicitly authorized public member matrix; its release is not yet claimed. Private source-document links and sensitive booking/contact details remain excluded.
 
 ## Observed verification
 
@@ -29,14 +29,16 @@
 - SNS-M003 release: [PR #4](https://github.com/nandiheath/sites.nandi.sh/pull/4) merged as `c31e2f1de380c507ef78598b95c10b934c7706ee`. PR validation `33939752014` passed with publication skipped; [main workflow 33939799281](https://github.com/nandiheath/sites.nandi.sh/actions/runs/33939799281) passed validation and publication. Generated commit `fa0fea6a09452c16ee7e2ad88a3a845337d722b5` records that exact source SHA; [Pages hosting deployment 33939845429](https://github.com/nandiheath/sites.nandi.sh/actions/runs/33939845429) succeeded.
 - Public HTTPS proof: all eight trip assets returned HTTP 200 and matched reviewed local source byte-for-byte. Actual Chromium exercised all eight itinerary dates and six sections on the live domain, verified absent roster/private-document links, root-page discovery, desktop presentation and all six sections at 390px/320px without overflow. Final live navigation reported no JavaScript or same-origin resource errors.
 - SNS-M003-T001 and its parent acceptance gates are satisfied; completed repository contracts are rolled up here and removed. No DNS, credentials or hosting access policy changed.
+- SNS-M004 local proof: `make ci` passed. Chromium verified 29 dining choices (12 Furano, 12 Asahikawa, 5 airport), eight sights, hotel dining without verified ratings, separate Google/Tabelog evidence, all region/filter/sort controls, consent-gated OSM loading, linked cards/pins, keyboard selection, co-located airport pins, hidden-map recovery and blocked-tile retry. Desktop 1440px and mobile 390px/320px fit without document overflow.
+- The authorized 13-row member matrix matched all 39 supplied values; confirmed totals are attendance 11, Shin Furano 6 and OMO7 8. Browser-only draft persistence and reset passed. Planned later checks remain not started. Transport planning now allows up to 13 people plus luggage.
 
 ## Decisions
 
-- The repository uses the Go standard library and has no runtime or package-registry dependency.
+- The builder uses only the Go standard library. The trip vendors Leaflet 1.9.4 locally; there is no package-registry install, backend or API-key dependency.
 - Pull requests run read-only validation. Only pushes to `main` receive `contents: write` and publish generated output.
 - `dist/` is generated, ignored, and never used as source.
 - Sub-site slugs accept lowercase letters/digits with single hyphen or underscore separators. The trip is native static HTML/CSS/JavaScript; no frontend package installation is needed.
 
 ## Next decisions
 
-- Publication policy resolved: public sanitized trip via the existing Pages workflow. Keep personal identities, individual booking records and private source links out of all future source changes; `noindex` is not access control.
+- Publication policy: public trip through the existing Pages workflow. The user explicitly authorized the supplied 13-name attendance/two-hotel matrix for SNS-M004. This narrow exception supersedes the previous no-roster rule; private document URLs, booking references, contacts and dietary specifics remain excluded. Browser edits are local drafts, not shared updates. `noindex` is not access control.
