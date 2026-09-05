@@ -6,7 +6,7 @@
 - `sites/home/public/` owns the root page. Future `sites/<slug>/public/` packages publish below `/<slug>/` and appear automatically on the root page.
 - Cloudflare DNS is declared, applied, and verified from the private infrastructure repository.
 - SNS-M002 completed the trip implementation locally; SNS-M003 subsequently sanitized and published it. `sites/2027sbd_hokkaido/public/` owns the trip, with home-page discovery, concise Hong Kong copy, snowboard-focused content, a navy/ice-blue design and controllable snowfall/parallax.
-- SNS-M003 published the trip through merged pull request #4. SNS-M004 now implements a location-based restaurant/map guide and the explicitly authorized public member matrix; its release is not yet claimed. Private source-document links and sensitive booking/contact details remain excluded.
+- SNS-M004 is complete through merged pull request #6. The live trip now includes location-based dining/maps and the explicitly authorized 13-member attendance/two-hotel matrix. Private source-document links and sensitive booking/contact details remain excluded.
 
 ## Observed verification
 
@@ -31,6 +31,9 @@
 - SNS-M003-T001 and its parent acceptance gates are satisfied; completed repository contracts are rolled up here and removed. No DNS, credentials or hosting access policy changed.
 - SNS-M004 local proof: `make ci` passed. Chromium verified 29 dining choices (12 Furano, 12 Asahikawa, 5 airport), eight sights, hotel dining without verified ratings, separate Google/Tabelog evidence, all region/filter/sort controls, consent-gated OSM loading, linked cards/pins, keyboard selection, co-located airport pins, hidden-map recovery and blocked-tile retry. Desktop 1440px and mobile 390px/320px fit without document overflow.
 - The authorized 13-row member matrix matched all 39 supplied values; confirmed totals are attendance 11, Shin Furano 6 and OMO7 8. Browser-only draft persistence and reset passed. Planned later checks remain not started. Transport planning now allows up to 13 people plus luggage.
+- SNS-M004 release: [PR #6](https://github.com/nandiheath/sites.nandi.sh/pull/6) merged as `6fea043a8002ec1babdabc00b23dfa241a8877b4` after validation `33941784424` passed. [Main workflow 33941827958](https://github.com/nandiheath/sites.nandi.sh/actions/runs/33941827958) and [Pages hosting deployment 33941868208](https://github.com/nandiheath/sites.nandi.sh/actions/runs/33941868208) succeeded.
+- All 17 deployed trip assets returned HTTP 200 and matched reviewed source byte-for-byte. Live Chromium verified dining counts 12/12/5, real loaded OSM tiles, linked pin/card selection, the 13-row public matrix with totals 11/6/8, and guide/member layouts at 390px/320px without document overflow. No JavaScript or same-origin resource errors were observed. Local proof additionally covered all seven navigation sections and idempotent map destruction.
+- SNS-M004-T001–T004 and the parent acceptance gates are satisfied. Completed repository contracts are rolled up here and removed. No DNS, deployment credentials or hosting access policy changed.
 
 ## Decisions
 

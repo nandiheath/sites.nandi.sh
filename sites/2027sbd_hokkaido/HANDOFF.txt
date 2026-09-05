@@ -1,7 +1,7 @@
 SBD HOKKAIDO 2027 — PUBLIC TRIP SITE
 
 Route: /2027sbd_hokkaido/; discovered automatically on the home page.
-Live: https://sites.nandi.sh/2027sbd_hokkaido/. SNS-M003 completed through PR #4; exact release and verification evidence is recorded in PROJECT_STATUS.md.
+Live: https://sites.nandi.sh/2027sbd_hokkaido/. SNS-M004 completed through PR #6; exact release and verification evidence is recorded in PROJECT_STATUS.md.
 
 RUN FROM THE REPOSITORY ROOT
   make serve
@@ -38,4 +38,5 @@ OBSERVED LOCAL VERIFICATION
 - Professional-banner screenshots were inspected on desktop and mobile, with no document/title overflow down to 320px. Motion OFF persisted, reduced-motion disabled effects, hidden sections cleared snowfall, and real background-tab switching paused/resumed the hero.
 - Publication privacy scan passed for source and generated assets. PR #4 merged; main workflow 33939799281 and Pages hosting deployment 33939845429 succeeded. All eight public trip assets returned HTTP 200 and matched reviewed source byte-for-byte. Live Chromium verified eight itinerary dates, all six sections, absent roster/private-document links, root-page discovery and desktop/mobile presentation down to 320px without runtime or resource errors.
 - SNS-M004 local proof: make ci passed. Chromium exercised all three location tabs, available filters and three sorts; 12/12/5 dining counts; consent with zero pre-click tile requests; real loaded OSM tiles; synchronized card/pin selection; keyboard pins; co-located airport pins; hidden-section recovery; blocked-tile fallback and successful retry. Desktop 1440px and mobile 390px/320px layouts fit without document overflow; the member table scrolls within its container.
-- The exact 39 supplied member values and confirmed totals 11/6/8 passed browser checks. Editing STP's Furano status survived reload as a clearly labelled local draft; reset restored the supplied value. Later transport, snow and final-preparation stages remain explicitly not started. SNS-M004 publication evidence will be recorded after the live release is observed.
+- The exact 39 supplied member values and confirmed totals 11/6/8 passed browser checks. Editing STP's Furano status survived reload as a clearly labelled local draft; reset restored the supplied value. Later transport, snow and final-preparation stages remain explicitly not started.
+- SNS-M004 release: PR #6 merged as 6fea043a8002ec1babdabc00b23dfa241a8877b4; main workflow 33941827958 and Pages deployment 33941868208 succeeded. All 17 trip assets returned HTTP 200 and matched reviewed source byte-for-byte. Live Chromium verified regional dining counts 12/12/5, loaded OSM tiles, linked pin/card selection, 13 member rows with totals 11/6/8, and guide/member layouts at 390px/320px without document overflow or runtime/same-origin resource errors. Local proof also covered seven-section navigation and idempotent map destruction. Completed SNS-M004 contracts are rolled up into PROJECT_STATUS.md and removed.
