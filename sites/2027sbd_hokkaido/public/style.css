@@ -225,6 +225,9 @@ details.card { margin-top: 0; padding: 22px 25px; }
 .mountain-night input { width: 17px; height: 17px; accent-color: var(--blue); flex-shrink: 0; margin-top: 4px; }
 #transport-route-panel { margin-bottom: 24px; }
 .transport-enquiry { font-family: var(--mono); font-size: 11px; }
+.transport-timetable { table-layout: fixed; margin: 16px 0; }
+.transport-timetable caption { text-align: left; color: var(--muted); font-size: 11px; padding-bottom: 12px; }
+.transport-timetable th, .transport-timetable td { padding: 10px 6px; font-size: 12px; }
 .location-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; margin-bottom: 25px; }
 .location-tab { border: 0; border-right: 1px solid var(--line); padding: 19px 22px; background: #0b1b2a; text-align: left; min-width: 0; }
 .location-tab:last-child { border-right: 0; }

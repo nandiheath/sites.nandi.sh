@@ -2,17 +2,13 @@ import { members } from './members.js';
 
 const transportSources = {
   charter: ["SkyExpress｜官方包車詢價", "https://book.skyexpress.jp/en/order"],
-  access: [
-    "北海道 Access Network｜官方季節路線入口",
-    "https://www.access-n.jp/winter2025/en/",
-  ],
   airport: [
-    "Resort Liner｜官方 2025–26 機場線與條款",
-    "https://www.access-n.jp/winter2025/en/skibus/detail/chitose_furano.html",
+    "Resort Liner｜官方 2026–27 機場線／預約",
+    "https://www.access-n.jp/winter2026/en/skibus/detail/chitose_furano.html",
   ],
   meeting: [
-    "Resort Liner｜官方 2025–26 集合地圖",
-    "https://www.access-n.jp/winter2025/en/information/",
+    "Resort Liner｜官方 2026–27 集合地圖",
+    "https://www.access-n.jp/winter2026/en/information/",
   ],
   zooBus: [
     "Powder Belt Liner｜官方 2025–26 富良野／動物園線",
@@ -62,10 +58,16 @@ const transportSources = {
     "Taisetsu Liner｜官方 2026 班表／預約入口",
     "https://www.asahikawa-denkikidou.jp/taisetsu_liner/",
   ],
-  blog: [
-    "喵爸喵媽｜交通經驗部落格（2026/4 更新）",
-    "https://kimiyo.tw/prince-hotel-shinfurano-transportation/",
-  ],
+  airportTimetable: ["Resort Liner｜官方 2026–27 班表圖片", "https://www.access-n.jp/winter2026/skibus/upload/e-801-cts-furano_2026-27w.jpg"],
+  skyFleet: ["SkyExpress｜官方車型及行李限額", "https://www.skyexpress.jp/fleet"],
+  skyPrice: ["SkyExpress｜官方冬季包車價目（未標年份）", "https://www.skyexpress.jp/hokkaido-niseko-sapporo-bus-hire"],
+  furanoCharter: ["富良野巴士｜官方貸切車型", "https://www.furanobus.jp/kashikiri/"],
+  furanoEnquiry: ["富良野巴士｜官方詢價入口", "https://www.furanobus.jp/contact/"],
+  social: ["Social Bus｜官方車隊／查詢入口", "https://social-bus.jp/fleet"],
+  jrFare: ["JR 北海道｜官方現行票價例子", "https://www.jrhokkaido.co.jp/global/english/ticket/regular/"],
+  jrReservation: ["JR 北海道｜官方指定席開售規則", "https://www.jrhokkaido.co.jp/global/english/ticket/reservation/"],
+  chuoAirport: ["中央巴士｜新千歲至札幌機場巴士", "https://www.chuo-bus.co.jp/airport.en/"],
+  chuoFurano: ["中央巴士｜高速富良野號班表", "https://www.chuo-bus.co.jp/highway.en/pocket/pdf/furano.pdf"],
 };
 
 function transportLink(key) {
@@ -86,32 +88,33 @@ const transportRoutes = [
     id: "arrival",
     label: "03.06 抵達富良野",
     title: "新千歲機場 → 新富良野王子",
-    tag: "首選：預約包車",
-    duration: "道路段約 3–4.5 小時，另計入境及等候",
+    tag: "自行訂位・定期機場巴士",
+    duration: "正式班表約 2 小時 15 分至 2 小時 25 分；另計入境、集合及雪天延誤",
     intro:
-      `名單 ${members.length} 人，首選包車直達 Shin Furano Prince Hotel。先收齊出席、航班、航廈及行李資料，再向車商詢價。`,
+      "3/6 不安排團體包車。首選 Hokkaido Resort Liner 直達 Shin Furano Prince Hotel；按各自航班選車，不必等全團同一班。2026–27 已開售，3/6 在公布營運期內，但未替任何人訂位。",
     steps: [
       [
-        "訂車",
-        `報價列明延誤等候及途中休息。季節直達巴士則須確認 2026–27 營業日、最多 ${members.length} 個座位及新富良野王子站。`,
+        "先選航班，再選巴士",
+        "下方列正式班表。官方飛機落地至巴士最低接駁時間：國內線 45 分鐘／國際線 90 分鐘；本團建議分別留至少約 1／2 小時，入境繁忙或板袋多再加時間，並確保趕及提早 15 分鐘報到。不是保證接得上。",
       ],
       [
-        "機場集合",
-        "集合點以接送憑證為準；全員取回行李後由一名聯絡人報到。建議提早 20–30 分鐘集合；落地後國際線預留約 2 小時以上、國內線約 1 小時以上。",
+        "官方預約及集合",
+        "成人（12 歲起）¥6,000；3–11 歲 ¥5,000，單程每人。官方要求至少 9 天前預約；航班確定就訂，不等最後期限。按自己的航廈及預約憑證查看集合地圖，不把國內線、國際線站互換。",
       ],
       [
         "酒店落車",
-        "使用全名 Shin Furano Prince Hotel／新富良野プリンスホテル，避免去錯王子酒店。點齊箱及板袋，再確認翌日單板課與租借。",
+        "訂 Shin Furano Prince Hotel／新富良野プリンスホテル；它是班表首個酒店站，不是 Furano Resort Hotel Edel Warme。取齊箱及板袋，再辦入住及確認翌日租借。",
       ],
     ],
     guidance:
-      "包車先報箱及板袋件數、尺寸。Resort Liner 2025–26 每人限一套裝袋雪具＋一件行李，上車須脫雪鞋；2027 容量及規則另確認。",
+      `官方每人可帶一套裝袋 ski／snowboard 裝備＋一件行李；車內要脫雪鞋。訂位時申報尺寸和件數，多人同班須先確認最多 ${members.length} 箱＋${members.length} 板袋的承運，不以座位有空推定貨艙有空。`,
     fallback:
-      "JR：新千歲空港 → 札幌 → 滝川 → 富良野，再預約的士到酒店，整段約 4.5–6.5 小時或更久。晚機或大範圍停運時，聯絡酒店／車商安排機場或札幌過夜，不硬趕山路。",
+      "錯過巴士：即聯絡營運方，查下一班空位；官方不保證替代運輸，額外費用自付。最後一班也趕不上，先查 JR 全程末班及酒店末段接送；不可行就聯絡酒店、改住機場／札幌一晚，不硬趕雪路。",
     warning:
-      "Resort Liner 成人單程 ¥6,000 為 2025/12–2026/3 舊季價；2027 班次、截止及集合點待確認。",
-    extra: `<details class="card"><summary>機場巴士：舊季條款及查詢入口</summary><p>Resort Liner 舊季要求提早 15 分鐘報到。王子交通頁另有北海道巴士入口；兩者都須重查 2027/3/6 是否可訂。原部落格的四班車及「2.5 小時」不作本團班表。</p>${transportLinks(["airport", "meeting", "prince", "blog"])}</details>`,
-    sources: ["charter", "access", "jr", "jrBook", "prince"],
+      "本頁查核：2026/9/4。官方營運期 2026/12/1–2027/3/30、每日行駛；以下為已公布 2026–27 班表，並非即時餘位／準點保證。所有時間為日本時間。",
+    extra: `<article class="card"><span class="tag green">已公布 · 2026–27</span><h4>3/6 直達巴士班表</h4><table class="transport-timetable"><caption>Resort Liner → 新富良野王子（日本時間）</caption><thead><tr><th scope="col">CTS 國內線出發</th><th scope="col">CTS 國際線出發</th><th scope="col">酒店到達</th></tr></thead><tbody><tr><td>10:00</td><td>不經停</td><td>12:15</td></tr><tr><td>12:20</td><td>不經停</td><td>14:35</td></tr><tr><td>14:50</td><td>15:00</td><td>17:15</td></tr><tr><td>17:50</td><td>18:00</td><td>20:15</td></tr></tbody></table><p class="meta">中途休息；國際線旅客不要為搭早班而假定可以轉去國內線，須先問清集合及接駁條件。</p>${transportLinks(["airportTimetable", "airport", "meeting"])}</article>
+      <div class="card-grid two"><article class="card"><p class="eyebrow">ALTERNATIVE A / JR</p><h4>新千歲 → 札幌 → 滝川 → 富良野</h4><p>Airport 列車到札幌，轉特急至滝川，再轉根室本線到富良野站，最後預約的士到酒店。按 JR 當季搜尋結果買全程所需車票；暫留約 4.5–6.5 小時，可能更久，不是固定班表。</p><p>轉車多、末段班次少；帶板袋先查電梯、指定席及每段末班。總價依班次／席種查官方，不把單一 Airport 票當全程票。</p>${transportLinks(["jr", "jrBook", "prince"])}</article><article class="card"><p class="eyebrow">ALTERNATIVE B / VIA SAPPORO</p><h4>機場巴士 → 札幌 → 高速富良野號</h4><p>機場巴士到札幌，再另搭高速富良野號到富良野站，最後預約的士到新富良野王子。兩段不是聯程保障；札幌下車點與下一班上車點未必相同，要查步行／轉乘。</p><p>只在班次、各段行李承運及末班接得上才考慮；留半天或更久並重查 2027 冬季班表。不比直達巴士省心。</p>${transportLinks(["chuoAirport", "chuoFurano", "prince"])}</article></div>`,
+    sources: ["airport", "meeting", "prince"],
     maps: [
       ["New Chitose Airport International Terminal", "新千歲機場"],
       ["新富良野プリンスホテル", "新富良野王子"],
@@ -121,32 +124,39 @@ const transportRoutes = [
     id: "zoo",
     label: "03.09 動物園轉場",
     title: "新富良野王子 → 旭山動物園 → OMO7",
-    tag: "休息日・轉酒店",
-    duration: "約 5–7 小時，含約 3 小時遊園",
+    tag: "唯一團體轉場・包車＋遊園",
+    duration: "建議包 08:00–15:00 左右約 7 小時；車商按雪況確認，不是已訂行程",
     intro:
-      "首選包車，兩段接送連遊園等候一起詢價；行李留車須取得書面同意。",
+      "只安排這一天的 group shuttle：退房後全團連行李去動物園，車輛等候遊園，再送 OMO7。先同時問富良野巴士及 SkyExpress；另可找 Social Bus 比較方案。尚未聯絡、詢得報價或保留車位。",
     steps: [
       [
-        "退房 → 動物園",
-        "道路段約 1.5–2 小時，出發時間由車商確認。先還應還租具及取回押金；帶走的租板須獲准跨城使用。",
+        "08:00–08:30｜酒店上車",
+        "前晚還好應還租具；08:00 起點人、裝箱及板袋。往動物園暫留 1 小時 45 分至 2 小時 15 分，目標約 10:15–10:30 抵達；晚出發或雪慢便縮短遊園，不要求司機追時間。",
       ],
       [
-        "遊園約 3 小時",
-        "官方 2027/1/2–4/7 開園 10:30–15:30，最後入園 15:00，涵蓋 3/9。企鵝散步及餵食看當日公告。",
+        "10:30–13:30｜動物園＋午餐",
+        "官方 2027/1/2–4/7 冬季開園 10:30–15:30、最後入園 15:00，涵蓋 3/9。留約 2.5–3 小時，午餐自理；企鵝散步按當日公告，不保證能看到。",
       ],
       [
-        "動物園 → OMO7",
-        "道路段約 30–50 分鐘。與司機寫明入口、集合點、電話及等候截止；到酒店後確認翌日雪場往返。",
+        "13:30–14:00｜集合 → OMO7",
+        "提早去約定入口、點齊人後出發。往 OMO7 暫留 40–55 分鐘，約 14:30–15:00 到酒店；未到入住時間先詢問寄物。全天休息，不加夜滑。",
       ],
     ],
     guidance:
-      "確認車輛全程等候、行李保管責任及箱／板袋容量，貴重物品隨身。園區寄物櫃未必放得下；巴士停車場預先申請交車商處理。",
+      `按 ${members.filter(member => member.attendance === 'O').length} 人確認／最多 ${members.length} 人，先報最多 ${members.length} 大箱＋${members.length} snowboard bags＋隨身袋的規劃上限，再補實際尺寸。座位數不等於貨艙容量；優先較大車，兩車只有全團同意才採用，通道／出口不能放行李。`,
     fallback:
-      "查當季 Powder Belt Liner 富良野 → 動物園／旭川，遊園後交通另訂。行李無處放則先乘 Lavender 到旭川、OMO7 寄物，再坐市區巴士；時間不足就取消動物園。",
+      "若包車未訂成，可重查當季 Powder Belt Liner，或 Lavender 去旭川先在 OMO7 寄物，再往動物園。它們是公共班車，不會為本團等候遊園，也不保證全團與板袋同班；接駁或寄物不成就保留直接轉酒店、取消動物園。",
     warning:
-      `動物園可能臨時休園。Powder Belt Liner ¥4,500 為 2025–26 舊季單程價；Lavender 免預約，不保證 ${members.length} 人及板袋同班。`,
-    extra: `<details class="card"><summary>公共交通備案：先寄行李</summary><p>Lavender 2026/4 路線：新富良野王子 → 旭川站約 2 小時，等車另計、不設訂位。OMO7 可入住前寄物，先報大件數量。</p><p>園方 2026/8 指引：旭川站前 6 號站、41／47 線到動物園約 40 分鐘。重查 2027 班表及末班，分車時保持聯絡；Powder Belt Liner 停靠不代表等候遊園。</p>${transportLinks(["lavender", "zooAccess", "omo", "zooTickets"])}</details>`,
-    sources: ["charter", "zooBus", "zoo", "zooAccess", "meeting"],
+      "上述時間是主辦規劃建議，不是營運方行車承諾。雪天／臨時休園可改行程；冬季班表和租具跨城歸還須出發前重查。",
+    extra: `<div class="card-grid">
+      <article class="card"><p class="eyebrow">LOCAL OPERATOR</p><h4>富良野巴士</h4><p>先問 <strong>16 正座＋6 輔助座 microbus</strong>；官方有箱／高爾夫袋儲物空間，但沒有承諾 ${members.length} 個板袋。要求正式乘客座位及全部行李同時裝得下，不把輔助座當貨艙。</p><p>HiAce 頁面寫 12 正座、圖註 13 席，不能直接當本團一車方案。必要時問更大車；<strong>沒有公開固定價格，須按這條路線報價。</strong></p>${transportLinks(["furanoCharter", "furanoEnquiry"])}</article>
+      <article class="card"><p class="eyebrow">ENGLISH ENQUIRY</p><h4>SkyExpress</h4><p>Coaster 公布最多 <strong>15 乘客（不含司機）</strong>，行李上限 15 大箱＋<strong>10 ski bags</strong>＋10 小袋。若 ${members.length} 人各帶一板袋，已超公布板袋數；須書面確認 snowboard bags 實際裝載／較大車方案，不能直接付款當已足夠。</p><p>有英文辦公室支援，不代表英語司機已含。車款可替換；按下方冬季價目比較，並要求指定日期報價。</p>${transportLinks(["skyFleet", "skyPrice", "charter"])}</article>
+      <article class="card"><p class="eyebrow">COMPARISON LEAD</p><h4>Social Bus</h4><p>可作第三個詢價入口。官方車隊頁未列可採信的乘客／板袋容量或固定價；須索取實際承運商、車型、貨艙照片與書面報價，不能當已確認可載全團。</p>${transportLinks(["social"])}</article>
+    </div>
+    <article class="card"><p class="eyebrow">PRICE BENCHMARK / NOT A QUOTE</p><h4>大概要預幾多？</h4><p>SkyExpress 公布冬季（12–4 月，頁面未標年份）<strong>11 小時／9–15 人 ¥220,000 含稅</strong>，含司機、燃油、保險；冬季 9 小時欄沒有報價。這是日租比較基準，<strong>不是 3/9 七小時路線價，不能按比例折算</strong>。</p><p>另計過路費（網站建議每天預 ¥5,000–7,000，不代表此路線實收）、停車、可能的札幌／二世古區外接送費、司機住宿及超時。超時公布 ¥12,000／小時或不足一小時；新增等候、繞路按書面條款確認。</p><p><strong>主辦暫留 ¥230,000–300,000 全車預備金</strong>，只供比價／討論，不是市場保證價或上限。以 12 人約 ¥19,200–25,000／人；13 人約 ¥17,700–23,100／人。這個估算以日租基準加預備金，不含動物園門票／餐費；若須第二車或額外運板，可能超出。富良野本地車商須另詢，未必採同一收費。</p><p>不要再用舊三段包車總額收款。取得包含遊園等候及全部行李的正式總價後，用「出發前」的 <a class="text-link" href="#prepare">3/9 分攤試算</a>。</p>${transportLinks(["skyPrice", "furanoEnquiry"])}</article>
+    <article class="card"><p class="eyebrow">BOOKING TIMELINE / 主辦建議</p><h4>何時開始聯絡？</h4><ol class="numbered-list"><li><strong>現在・2026/9：</strong>把同一份路線、12 人確認／最多 ${members.length} 人、行李上限、遊園等候要求寄給兩至三家；先問 3/9 能否接單。</li><li><strong>2026/10–11：</strong>比較書面總價、車型／貨艙、取消及改人數條款；有合適方案就按報價有效期決定，不等到冬季。</li><li><strong>最遲目標 2026/12–2027/1：</strong>完成訂金／確認車位、上落點、遊園行李保管及司機聯絡流程；若仍未訂成便啟用備案。</li><li><strong>出發前 1–2 週及前晚：</strong>補最終名單與尺寸、確認動物園／天氣、司機及集合點。</li></ol><p class="meta">這是建議工作時間線，不是營運方的訂位截止或供應保證；報價保留期／取消費以正式回覆為準。</p></article>
+    <details class="card"><summary>遊園期間，行李及停車怎樣處理？</summary><p>要求車輛全程等候、行李留在鎖好車內的書面許可，問清保管／遺失責任及是否中途換車。貴重物品隨身，不靠園內儲物櫃放全團板袋。</p><p>由車商核實巴士停車申請、正確入口及費用。門票另付；如需團體申請，先向園方確認。時間不足時先刪額外停靠，不壓縮安全車程。</p>${transportLinks(["zooAccess", "zooTickets", "zoo"])}</details>`,
+    sources: ["furanoEnquiry", "charter", "zoo", "zooBus", "lavender"],
     maps: [
       ["旭山動物園", "旭山動物園"],
       ["OMO7 旭川", "OMO7 旭川"],
@@ -193,32 +203,32 @@ const transportRoutes = [
     id: "departure",
     label: "03.13 返回機場",
     title: "OMO7 旭川 → 新千歲機場",
-    tag: "包車・JR 備案",
-    duration: "酒店至航廈約 3–4.5 小時，另加天候及報到緩衝",
+    tag: "沒有團體直送・各自訂位",
+    duration: "巴士現行約 2 小時 39 分；JR 連車站／轉乘暫留 3–4 小時，另加機場及冬季緩衝",
     intro:
-      "先有航班時間、航廈及航空公司板袋託運規則，再訂包車或 JR。Taisetsu Liner 是公共巴士，不是酒店接駁。",
+      "3/13 不安排包車或酒店直送。每人按自己的航班選 Taisetsu Liner 公共機場巴士，或 JR 經札幌；可自行約小組同行，但不是全團同一個出門時間。兩者均未替大家訂票。",
     steps: [
       [
-        "首選包車",
-        "請車商按航班倒推接送，列明航廈、板袋容量、通行費及雪天繞路。道路段約 3–4 小時，另留冬季延誤。",
+        "方案 A｜OMO7 前公共巴士",
+        "現行 6条9丁目（OMO7 前）06:56 → CTS 國內線 09:35，或 08:56 → 11:35。成人單程 ¥4,500；兩個月前開售，3/13 的訂位可在 2027/1/13 起按官網確認。班表標示 2026/4/1 起，須再確認 2027/3/13 是否維持。",
       ],
       [
-        "JR：旭川 → 札幌",
-        "OMO7 至旭川站步行約 15 分鐘；帶板及大箱建議預訂的士。特急 Lilac／Kamui 約 1.5 小時，經官方訂位入口買指定席。",
+        "方案 B｜JR 旭川 → 札幌",
+        "OMO7 至旭川站步行約 13–15 分鐘；雪地大箱＋板袋建議預約短程的士。特急 Lilac／Kamui 約 1.5 小時，現行全車指定席，先經官方訂位。",
       ],
       [
         "札幌 → 新千歲空港",
-        "轉乘留 30–45 分鐘；搭往機場方向 Airport，約 40–50 分鐘，可另訂指定席。抵站後前往正確航廈。",
+        "轉車建議留 30–45 分鐘；往機場的 Airport 約 40–50 分鐘，可選普通自由席或另訂指定席。現行分段票價例子 ¥5,440＋¥1,230＝約 ¥6,670／人；不是 2027 聯程報價，按購票全程結果及席種作準。",
       ],
     ],
     guidance:
-      "包車申報箱＋板袋；JR 每人最多兩件、每件 ≤30kg、三邊和 ≤250cm、長 ≤2m（特殊物品另有條件），板袋先向 JR 確認。指定席不保證專用行李位，勿阻通道。",
+      "Taisetsu 行李艙原則每人一件、≤0.25m³、長≤2m、重≤30kg；箱＋板袋屬多件，可能被拒，即使有座也須買票前取得承運同意。JR 一般每人最多兩件、每件≤30kg、三邊和≤250cm、長≤2m（特殊物品另有條件），板袋向 JR 確認；指定席不保證行李位，勿阻通道。",
     fallback:
-      "建議國際線起飛前 3 小時、國內線前 2 小時到航廈，另留 1–2 小時冬季備援；早機考慮前晚改住機場附近。前晚查道路及 JR，兩者停運即聯絡航空公司／酒店改簽和住宿。",
+      "按航空公司要求倒推：本頁建議國際線起飛前至少 3 小時、國內線前至少 2 小時到正確航廈，再額外留 1–2 小時冬季交通備援。做不到便改前晚住札幌／機場附近。前晚查 JR 及道路；兩者停運時聯絡航空公司和酒店，不硬趕。",
     warning:
-      "2027/3/13（六）可能遇 JR 三月改點，須重查列車、轉乘及全程票價；Airport 的 IC 規則不代表已包特急票。",
-    extra: `<details class="card"><summary>Taisetsu Liner：直達巴士及行李限制</summary><p>2026/4/1 班表：6條9丁目（OMO7 前）→ 新千歲國內線；國際線另走連絡通道。由官方頁訂位，現行提前兩個月開售。成人單程 ¥4,500（2025/12/1 改價），2027 班次及價格待確認。</p><p>行李艙原則每人一件、長 ≤2m、重 ≤30kg、容積 ≤0.25m³。箱＋板袋可能被拒，買票前須取得承運同意。</p>${transportLinks(["taisetsu"])}</details><details class="card"><summary>JR 分組及大件行李</summary><p>每 3–4 人一組，留一人壓後；各人保存列車名、車廂及訂位憑證。預留電梯及行李架排隊時間。寄送大件須提前確認送達日及機場取件截止。</p>${transportLinks(["jrAirport", "jrBook", "omoAccess"])}</details>`,
-    sources: ["charter", "jr", "jrBook", "taisetsu"],
+      "Taisetsu 現行機場落客只有國內線，去國際線還要走連絡通道，不能把 09:35／11:35 當到達國際線櫃位。3 月可能改點；這些不是 2027 準點／接上航班保證。",
+    extra: `<div class="card-grid two"><article class="card"><p class="eyebrow">PUBLIC BUS / SELF-BOOKED</p><h4>Taisetsu Liner 訂位及行李</h4><p>官網有 BusNAVI／Japan Bus Lines 訂位入口，先核對 6条9丁目 站牌及方向。現行 ¥4,500 普通單程價（2025/12/1 改價）；網上早割 ¥4,200 須乘車前 2 個月至 14 日完成預約付款，訂後不可改。2027 售價／規則仍需重查。</p><p>最適合班次配合且行李已獲同意的人；有兩件大行李卻未獲承運答覆，就不要把它當已可用，先比較 JR／提前寄送方案。現場候補不保證有位。</p>${transportLinks(["taisetsu"])}</article><article class="card"><p class="eyebrow">TRAIN / SELF-BOOKED</p><h4>JR 訂位與小組同行</h4><p>指定席通常乘車日前一個月 10:00 日本時間開售；3/13 可在 2027/2/13 起查正式可售班次。旭川特急與 Airport 所需票券一起查，不只買 Airport 那段。</p><p>可約每組 3–4 人，各人保存列車名、車廂及憑證；留電梯、行李架及走錯月台的緩衝。寄送大件要先查寄件／送達日及機場取件截止，不假定即日送到。</p>${transportLinks(["jrBook", "jrReservation", "jrFare", "jrAirport", "omoAccess"])}</article></div>`,
+    sources: ["taisetsu", "jr", "jrBook", "jrFare"],
     maps: [
       ["旭川駅", "旭川站"],
       ["札幌駅", "札幌站"],
@@ -227,33 +237,32 @@ const transportRoutes = [
   },
 ];
 
-const charterEnquiry = `Subject: Private transfers for up to ${members.length} passengers — Hokkaido, 6–13 March 2027
+const charterEnquiry = `Subject: 9 March 2027 group shuttle with zoo waiting — Shin Furano Prince to OMO7 Asahikawa
 
-Hello, please quote the following private transfers with a professional driver. Our public planning snapshot lists ${members.filter(member => member.attendance === 'O').length} attending and ${members.filter(member => member.attendance === '?').length} undecided, up to ${members.length} passengers; please quote both confirmed and maximum group sizes. We will not drive ourselves.
+Hello, please quote ONE private group transfer on 9 March 2027: Shin Furano Prince Hotel (Nakagoryo, Furano) -> Asahiyama Zoo (wait during our visit) -> OMO7 Asahikawa (6-jo-dori 9-chome).
 
-1. 6 March 2027: New Chitose Airport (CTS) to Shin Furano Prince Hotel, Nakagoryo, Furano. Flight numbers, arrival times and domestic/international terminal will be provided once confirmed.
-2. 9 March 2027: Shin Furano Prince Hotel to Asahiyama Zoo, with approximately 3 hours for the visit, then OMO7 Asahikawa, 6-jo-dori 9-chome. Please advise a winter-safe pickup time. The published 2027 winter zoo hours are 10:30–15:30, last entry 15:00, subject to change.
-3. 13 March 2027: OMO7 Asahikawa to CTS, correct departure terminal. Our flight details will be supplied before booking; please recommend pickup time allowing winter delays and airline check-in.
+Our public planning snapshot lists ${members.filter(member => member.attendance === 'O').length} attending and ${members.filter(member => member.attendance === '?').length} undecided, up to ${members.length} passengers. Please quote both confirmed and maximum group sizes. We will not drive ourselves. No airport transfers or daily resort transfers are requested in this enquiry.
 
-Please quote these three main transfers separately and as a package. If available, quote optional return resort transfers on 10–12 March separately (Kamui / Pippu / Santa; Asahidake only if conditions and our guide permit).
+Suggested timing, subject to your winter-safe advice: load/depart around 08:00-08:30, reach the zoo around 10:15-10:30, visit and lunch until around 13:30, depart by 14:00, reach OMO7 around 14:30-15:00. Published 2027 winter zoo hours are 10:30-15:30, last entry 15:00, subject to change. Please recommend a realistic schedule and a weather/closure alternative.
 
-Please provide vehicle type and usable passenger AND cargo capacity together. A 14-seat description alone is not sufficient; confirm whether the driver is included in that count. Please check capacity for up to ${members.length} passengers, ${members.length} large suitcases, ${members.length} snowboard bags and day bags; final counts, dimensions and weights will follow. Propose a larger vehicle or two professionally driven vehicles if needed, without blocking aisles or exits.
+Planning maximum: ${members.length} large suitcases + ${members.length} snowboard bags + day bags. Final counts, dimensions and weights will follow. Please provide usable passenger capacity EXCLUDING driver and simultaneous cargo capacity, vehicle class and cargo photos. We prefer everyone in one vehicle with luggage, without using aisles or exits. A seat count alone is insufficient; please propose a larger vehicle if needed. Quote any two-vehicle alternative separately for our approval.
 
-For 9 March, please include zoo waiting time, bus parking arrangements/required advance application, agreed entrance and pickup point, and whether luggage can remain securely in the vehicle while we visit. Please explain custody/liability and whether the same vehicle waits throughout.
+Please include zoo waiting, bus parking/advance application, agreed entrance and pickup point. Can luggage remain in the locked vehicle throughout the visit? Please confirm custody/liability, whether the same vehicle waits, and how vehicle substitution is handled.
 
-Please itemise tax, tolls, parking, driver waiting, overtime, extra stops, flight delay handling, winter road closures, cancellation terms, payment schedule and any luggage surcharge. Please provide the meeting-point instructions and an emergency contact. This is a quotation request, not a booking confirmation.
-Thank you.`;
+Please itemise tax, tolls, parking, waiting, overtime, deadhead/out-of-area charges, any driver accommodation and luggage charges. Confirm quote validity, deposit/payment schedule, cancellation and passenger-count changes, weather/road-closure terms, meeting instructions and the emergency-contact process.
+
+This is a quotation request, not a booking confirmation. Thank you.`;
 
 export function renderTransport(container) {
   container.innerHTML = `
-    <header class="section-intro"><p class="eyebrow">TRANSPORT / 非自駕交通</p><h2 class="section-title">四段交通，先訂往返及板袋位。</h2><p class="muted">三段大移動優先包車；旭川雪場按程度分組。以下未出票、未訂車。</p></header>
-    <div class="callout warning"><strong>規劃基準 · 公開名單快照</strong><p>${members.filter(member => member.attendance === 'O').length} 人出席、${members.filter(member => member.attendance === '?').length} 人待確認，最多 ${members.length} 人。「14 座」先問是否包括司機，亦不保證裝得下全團＋大箱＋板袋；車程為冬季估算，2027 班次及座位須另查。</p></div>
+    <header class="section-intro"><p class="eyebrow">TRANSPORT / 非自駕交通</p><h2 class="section-title">機場各自訂，3/9 一起轉場。</h2><p class="muted">3/6 定期機場巴士；3/9 團體包車連動物園；3/13 各自巴士／JR。每日雪場往返另外安排，以下未代訂任何車票或車輛。</p></header>
+    <div class="callout warning"><strong>規劃基準 · 公開名單快照</strong><p>${members.filter(member => member.attendance === 'O').length} 人出席、${members.filter(member => member.attendance === '?').length} 人待確認，最多 ${members.length} 人。3/9 按乘客＋大箱＋板袋一起詢價，不能只看「14 座」。機場巴士按各自航班選班；資料查核 2026/9/4，已公布新季、現行參考和主辦估算分開標示。</p></div>
     <div class="pill-row" role="group" aria-label="選擇交通路段">${transportRoutes.map((route, index) => `<button type="button" class="pill${index === 0 ? " active" : ""}" id="transport-button-${route.id}" data-transport-route="${route.id}" aria-pressed="${index === 0}" aria-controls="transport-route-panel">${route.label}</button>`).join("")}</div>
     <p class="meta" id="transport-route-status" role="status" aria-live="polite"></p>
     <div id="transport-route-panel" class="stack" role="region" aria-labelledby="transport-route-title"></div>
     <div class="card-grid two">
-      <details class="card"><summary>包車付款前：人數、行李及條款</summary><ol class="numbered-list"><li><strong>容量：</strong>實際人數、箱／板袋尺寸，索取車型及行李艙照片。</li><li><strong>報價：</strong>三段分項，列動物園等候、停車、過路費及司機加班。</li><li><strong>條款：</strong>誤機、取消、封路、改期及額外住宿責任。</li><li><strong>覆核：</strong>出發前一週及前晚確認集合點、司機電話、天氣及營運。</li></ol><p class="meta">原構想 ¥195,000–220,000 並非車商報價，範圍及車型未定，不可直接按名單人數收款。</p>${transportLinks(["charter", "access"])}</details>
-      <article class="card"><p class="eyebrow">CHARTER ENQUIRY</p><h3>包車詢價信</h3><p>複製英文草稿，補航班及行李後自行寄出；不會自動訂車。</p><label for="transport-enquiry">英文詢價內容</label><textarea id="transport-enquiry" class="transport-enquiry" rows="12" readonly lang="en" spellcheck="false"></textarea><div class="pill-row"><button type="button" class="button" id="transport-copy">複製詢價信</button><button type="button" class="button secondary" id="transport-select">選取全文</button></div><p id="transport-copy-status" role="status" aria-live="polite" class="meta">自動複製失敗時，可選取全文手動複製。</p></article>
+      <details class="card"><summary>3/9 包車付款前：人數、行李及條款</summary><ol class="numbered-list"><li><strong>容量：</strong>實際人數、箱／板袋尺寸，索取車型及行李艙照片。</li><li><strong>報價：</strong>只問 3/9 富良野 → 動物園 → OMO7，含遊園等候，列停車、過路、區外接送及加班。</li><li><strong>條款：</strong>取消、改人數、封路、改期、行李留車責任及可能額外住宿。</li><li><strong>覆核：</strong>出發前 1–2 週及前晚確認集合點、司機聯絡流程、天氣及營運。</li></ol><p class="meta">先取得完整書面報價及行李承運確認，再決定付款；不包含去回機場接送。</p>${transportLinks(["furanoEnquiry", "charter"])}</details>
+      <article class="card"><p class="eyebrow">MARCH 9 / CHARTER ENQUIRY</p><h3>只詢 3/9：英文包車詢價信</h3><p>複製草稿，補最終人數及行李尺寸後自行寄出；不會自動寄信或訂車。</p><label for="transport-enquiry">英文詢價內容</label><textarea id="transport-enquiry" class="transport-enquiry" rows="12" readonly lang="en" spellcheck="false"></textarea><div class="pill-row"><button type="button" class="button" id="transport-copy">複製詢價信</button><button type="button" class="button secondary" id="transport-select">選取全文</button></div><p id="transport-copy-status" role="status" aria-live="polite" class="meta">自動複製失敗時，可選取全文手動複製。</p></article>
     </div>`;
 
   const panel = container.querySelector("#transport-route-panel");
@@ -313,7 +322,7 @@ export function renderTransport(container) {
           throw new Error("Clipboard unavailable");
         await navigator.clipboard.writeText(enquiry.value);
         copyStatus.textContent =
-          "詢價信已複製。請先補齊航班與行李資料，再自行寄給車商。";
+          "詢價信已複製。請先補齊最終人數及行李尺寸，再自行寄給車商；只詢 3/9 轉場。";
       } catch {
         selectEnquiry();
         copyStatus.textContent =
