@@ -1,0 +1,202 @@
+.venue-map {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #2c4961;
+  border-radius: 7px;
+  background: #0c1c2d;
+  color: #dfeaf5;
+  isolation: isolate;
+}
+.venue-map [hidden] { display: none !important; }
+.venue-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 21px 24px;
+  border-bottom: 1px solid #2c4961;
+  background: linear-gradient(115deg, #14334b, #0c1c2d);
+}
+.venue-map-eyebrow {
+  margin: 0 0 6px;
+  color: #87bdd9;
+  font: 9px/1.5 var(--mono, monospace);
+  letter-spacing: 1.6px;
+}
+.venue-map .venue-map-title {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+.venue-map-count {
+  flex-shrink: 0;
+  color: #b3d7ec;
+  font-size: 11px;
+  padding: 6px 9px;
+  border: 1px solid #345771;
+  border-radius: 3px;
+}
+.venue-map-stage { position: relative; background: #0b2032; }
+.venue-map-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 390px;
+  padding: 40px max(24px, 6%);
+  background: radial-gradient(ellipse at 100% 0, #1b496466, transparent 65%);
+}
+.venue-map-placeholder-label {
+  color: #a6d8f0;
+  border-left: 2px solid #70d4ff;
+  padding-left: 10px;
+  font-size: 11px;
+  margin-bottom: 17px;
+}
+.venue-map-placeholder h4 { margin: 0 0 13px; font-size: 23px; line-height: 1.6; }
+.venue-map-placeholder > p { max-width: 620px; margin: 0 0 20px; color: #b0c7d9; font-size: 13px; line-height: 1.9; }
+.venue-map .venue-map-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #47718c;
+  border-radius: 4px;
+  background: #143149;
+  color: #d8effb;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+  cursor: pointer;
+}
+.venue-map .venue-map-button:hover { background: #204760; border-color: #79badb; }
+.venue-map .venue-map-load { color: #092337; background: #92dcfa; border-color: #92dcfa; }
+.venue-map .venue-map-load:hover { background: #c6eeff; border-color: #c6eeff; }
+.venue-map .venue-map-button:disabled { cursor: default; opacity: .5; }
+.venue-map-placeholder .venue-map-privacy { margin: 19px 0 0; color: #93aec1; font-size: 11px; line-height: 1.9; }
+.venue-map-privacy a { color: #b0ddf3; text-decoration: underline; text-underline-offset: 3px; }
+.venue-map .venue-map-canvas {
+  width: 100%;
+  height: clamp(360px, 52vw, 460px);
+  background: #0b2032;
+  color: #092337;
+  font-family: inherit;
+  z-index: 0;
+}
+.venue-map-toolbar, .venue-map-network {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #253e54;
+}
+.venue-map-toolbar { border-top: 1px solid #2c4961; }
+.venue-map-toolbar > p { margin: 0; color: #9ab9ce; font-size: 11px; line-height: 1.8; }
+.venue-map-network { background: #0a1927; }
+.venue-map-tile-status { margin: 0; color: #8faec3; font-size: 11px; line-height: 1.8; }
+.venue-map-tile-error .venue-map-network { background: #2a251b; border-bottom-color: #655235; }
+.venue-map-tile-error .venue-map-tile-status { color: #efcfa3; }
+.venue-map .venue-map-retry { flex-shrink: 0; border-color: #92734b; background: #3a3020; color: #ffe0b6; }
+.venue-map .venue-map-retry:hover { background: #53432b; border-color: #cba56e; }
+.venue-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  padding: 18px 20px 0;
+  color: #a5c3d6;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.venue-map-legend > span { display: inline-flex; align-items: center; gap: 7px; }
+.venue-map-legend-base::before, .venue-map-legend-place::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  border: 1px solid #c1e9ff;
+  border-radius: 2px;
+  background: #bfeaff;
+}
+.venue-map-legend-place::before { background: #143149; }
+.venue-map-legend-line::before { content: ""; width: 20px; border-top: 3px dashed #50b8e1; }
+.venue-map-selection { margin: 14px 20px 0; color: #d0e9f8; font-size: 12px; line-height: 1.9; }
+.venue-map-note { margin: 9px 20px 20px; color: #8faec3; font-size: 11px; line-height: 1.9; }
+
+/* Each group shares one real geographic anchor, including co-located venues. */
+.venue-map-marker { border: 0; background: none; }
+.venue-map-pin-group {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 6px;
+  background: #0c243a;
+  box-shadow: 0 2px 12px #06152655;
+  pointer-events: auto;
+}
+.venue-map-pin-group::after {
+  position: absolute;
+  top: 100%;
+  left: calc(50% - 8px);
+  width: 0;
+  height: 0;
+  content: "";
+  border: 8px solid transparent;
+  border-top-color: #0c243a;
+  border-bottom: 0;
+}
+.venue-map .venue-map-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  min-height: 0;
+  padding: 0;
+  border: 1px solid #73adce;
+  border-radius: 3px;
+  background: #173d59;
+  color: #f0f9ff;
+  font: 700 14px/1 var(--mono, monospace);
+  cursor: pointer;
+  pointer-events: auto;
+}
+.venue-map .venue-map-pin-base { background: #c1e9ff; border-color: #ecf8ff; color: #082336; font: 700 10px/1.2 system-ui, sans-serif; }
+.venue-map .venue-map-pin:hover { background: #2c6485; color: #fff; }
+.venue-map .venue-map-pin.is-selected { background: #f1bf61; color: #172333; border-color: #fff1d4; box-shadow: inset 0 0 0 1px #fff1d4; }
+.venue-map button:focus-visible, .venue-map a:focus-visible, .venue-map-canvas:focus-visible {
+  outline: 3px solid #56caff;
+  outline-offset: 3px;
+}
+.venue-map .venue-map-pin:focus-visible { outline: 3px solid #fff; outline-offset: 1px; position: relative; z-index: 1; }
+.venue-map-canvas:focus-visible { outline-offset: -3px; }
+.venue-map .leaflet-bar { border: 1px solid #41617a; box-shadow: 0 2px 8px #05152544; overflow: hidden; }
+.venue-map .leaflet-bar a { width: 38px; height: 38px; line-height: 38px; background: #102d43; border-bottom-color: #35566f; color: #e2f4ff; }
+.venue-map .leaflet-bar a:hover, .venue-map .leaflet-bar a:focus { background: #254d69; color: #fff; }
+.venue-map .leaflet-bar a.leaflet-disabled { background: #172d3d; color: #71899b; }
+.venue-map .leaflet-control-attribution { padding: 3px 6px; background: #f4f9f4f2; color: #23372d; font-size: 10px; line-height: 1.5; }
+.venue-map .leaflet-control-attribution a { color: #155f87; }
+.venue-map .leaflet-control-scale-line { background: #f4f9f4e6; border-color: #365145; color: #21362c; text-shadow: none; }
+.venue-map .leaflet-popup-content-wrapper, .venue-map .leaflet-popup-tip { background: #102a40; color: #d9edf9; }
+.venue-map .leaflet-popup-content-wrapper { border-radius: 5px; box-shadow: 0 3px 18px #04101c55; }
+.venue-map .leaflet-popup-content { margin: 16px; font-family: inherit; line-height: 1.8; }
+.venue-map-popup-label { display: block; margin-bottom: 5px; color: #90cbe8; font-size: 10px; }
+.venue-map-popup strong { display: block; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+.venue-map .venue-map-popup p { margin: 9px 0; color: #aac5d8; font-size: 11px; line-height: 1.8; }
+.venue-map .venue-map-popup .venue-map-popup-coordinates { font: 10px/1.6 var(--mono, monospace); color: #88aabd; }
+.venue-map-popup-close { min-height: 36px; padding: 5px 0; border: 0; background: none; color: #bde8ff; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 600px) {
+  .venue-map-header { padding: 17px 16px; gap: 10px; }
+  .venue-map .venue-map-title { font-size: 15px; }
+  .venue-map-count { padding: 5px 7px; font-size: 10px; }
+  .venue-map-placeholder { min-height: 370px; padding: 28px 20px; }
+  .venue-map-placeholder h4 { font-size: 21px; }
+  .venue-map-toolbar, .venue-map-network { align-items: flex-start; flex-direction: column; padding: 12px 16px; gap: 9px; }
+  .venue-map-legend { padding: 16px 16px 0; gap: 10px 15px; }
+  .venue-map-selection { margin-right: 16px; margin-left: 16px; }
+  .venue-map-note { margin-right: 16px; margin-left: 16px; }
+}
