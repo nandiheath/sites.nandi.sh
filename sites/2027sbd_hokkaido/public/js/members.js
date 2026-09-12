@@ -13,7 +13,6 @@ export const members = [
   ['SMALL', 'O', 'O', 'O'],
   ['PEGGY', 'O', 'O', 'O'],
   ['KIT', 'O', 'O', 'O'],
-  ['HOMER', '?', 'O', 'O'],
 ].map(([name, attendance, furano, omo]) => ({ name, attendance, furano, omo }));
 
 const roommatePairs = [
