@@ -65,3 +65,5 @@ CONTENT AMENDMENT — 2026-09-12
 CONTENT AMENDMENT — 2026-09-12 (HOMER REMOVAL)
 - `public/js/members.js` removes HOMER from the published roster; dynamic attendance, passenger-capacity and transport-enquiry totals now derive from the remaining 14 members.
 - This removes the uncertain attendance entry without changing the PEGGY + KIT room-share or any remaining hotel statuses.
+
+- Homer-removal release: PR #20 merged as 09a8d63c4586c61e9141149766ca2150392dfb15; validation run 34715848361, main Pages workflow 34715885470 and Pages deployment 34715932047 succeeded. Cache-bypassed live generation 963ae6cfff634607cf72b7229fd0b9a56d0513cec8a2ded93d3c78769bc00ca9 returned HTTP 200 and matched generated entry HTML plus main.js, members.js and transport.js byte-for-byte with no HOMER. Browser visual verification was unavailable because the cmux socket was refused.
