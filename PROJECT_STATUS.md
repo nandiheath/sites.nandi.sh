@@ -6,7 +6,7 @@
 - `sites/home/public/` owns the root page. Future `sites/<slug>/public/` packages publish below `/<slug>/` and appear automatically on the root page.
 - Cloudflare DNS is declared, applied, and verified from the private infrastructure repository.
 - SNS-M002 completed the trip implementation locally; SNS-M003 subsequently sanitized and published it. `sites/2027sbd_hokkaido/public/` owns the trip, with home-page discovery, concise Hong Kong copy, snowboard-focused content, a navy/ice-blue design and controllable snowfall/parallax.
-- SNS-M004 is complete through merged pull request #6. The live trip now includes location-based dining/maps and the explicitly authorized 13-member attendance/two-hotel matrix. Private source-document links and sensitive booking/contact details remain excluded.
+- 2026-09-12 local trip amendment: the public snapshot now has 15 listed travelers (14 attending, 1 uncertain), all listed two-hotel statuses booked, and PEGGY + KIT added as a room-share pair. March 9 now records the approximately JPY 110,000 Monchan Travel bus quote and Perfume Trees Gin as a candidate stop with Chinese/Cantonese guide availability TBC.
 
 ## Observed verification
 
@@ -47,6 +47,8 @@
 - SNS-M009 is live: March 9 is a fixed-endpoint Shin Furano Prince → OMO7 private sightseeing charter, not a mandatory zoo transfer. Three mutually exclusive sourced proposals cover Shirahige Falls/optional snow-covered Blue Pond + Chiyoda lunch (cyai alternate), Cheese Factory + AEON lunch + City Museum, and optional zoo + Central Dining Hall. Enquiry specifies named alternatives and written stop-change/working-time terms. Daily plan, schematic accessibility text, calendar, member follow-up, preparation/calculator and snow-ticket rest-day copy agree. Blue Pond uses the July 2026 >=6m bus JPY 6,000 tariff; museum uses the October 2026 adult JPY 440 tariff. make ci passed; local/live Chromium proved four route controls, three expandable itineraries, 22 source/map hrefs, enquiry selection/copy fallback, JPY 240,000/12 = 20,000, eight calendar events and 1440/390/320px layouts without overflow/runtime errors. Desktop/mobile screenshots inspected. No provider contact, bookings, personal-data or infrastructure-policy changes.
 - SNS-M009 release: [PR #16](https://github.com/nandiheath/sites.nandi.sh/pull/16) merged as `2f25c36d85e96400dba58941d3596a003011af70` after validation `33949102233` passed. Main publication `33949133783` and Pages deployment `33949178527` succeeded. Chromium primed with the old `2b4f2818` live generation upgraded without clearing cache via `https://sites.nandi.sh/2027sbd_hokkaido/?v=a1421560#transport` to `a1421560425997b11ce4034b6919ed83f64da75d6f9e754f7b791b640e8581c7`. Entry HTML plus transport.js/main.js/members.js/mountains.js returned HTTP 200 and matched generated output byte-for-byte. Completed SNS-M009/T001–T003 contracts are rolled up here and removed.
 
+- Local amendment validation is pending publication: source and generated-output checks must pass before the Pages workflow is observed. No booking, payment or provider contact is performed by the site.
+
 ## Decisions
 
 - The builder uses only the Go standard library. The trip vendors Leaflet 1.9.4 locally; there is no package-registry install, backend or API-key dependency.
@@ -56,5 +58,5 @@
 
 ## Next decisions
 
-- Publication policy: public trip through the existing Pages workflow. The user explicitly authorized the supplied 13-name attendance/two-hotel matrix for SNS-M004. This narrow exception supersedes the previous no-roster rule; private document URLs, booking references, contacts and dietary specifics remain excluded. Browser edits are local drafts, not shared updates. `noindex` is not access control.
-- SNS-M006 additionally authorizes the supplied five roommate pairs, STP-to-NULL rename, WANYI attendance and SMALL/BEAR/KAY confirmations at both hotels; no other personal details or hotel-specific room assignments are added.
+- Publication policy: public trip through the existing Pages workflow. The current 15-name attendance/two-hotel snapshot and PEGGY + KIT room-share update are user-authorized for publication; private document URLs, booking references, contacts and dietary specifics remain excluded. Browser edits are local drafts, not shared updates. `noindex` is not access control.
+- SNS-M006's five supplied roommate pairs remain authorized; the 2026-09-12 update adds PEGGY + KIT as the sixth pair and reports all listed two-hotel bookings complete. No hotel-specific room assignments are added.
