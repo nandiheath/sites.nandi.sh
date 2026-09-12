@@ -59,3 +59,5 @@ CONTENT AMENDMENT — 2026-09-12
 - `public/js/main.js` changes the banner and hotel cards from booking action to booked status, records the shared room, and adds Monchan Travel plus Perfume Trees Gin to the March 9 day card.
 - `public/js/transport.js` records the approximately JPY 110,000 Monchan Travel quote, adds the official Perfume Trees Gin link, maps the stop, and expands the enquiry to request vehicle/luggage terms and a Chinese/Cantonese guide.
 - No booking, payment, provider contact or publication occurred before this publish request.
+
+- Publication amendment release: PR #18 merged as 659682d784d7e4abf9a32364664e3578cee622bd; validation run 34714325089, main Pages workflow 34714364744 and Pages deployment 34714484908 succeeded. Live generation 47183736d7a07bfa4ee5325ba355209f341efa90112b9085dcb7c64c0b876736 returned HTTP 200 and matched generated entry HTML plus main.js, members.js and transport.js byte-for-byte. Static live checks passed for Peggy, Kit, the shared-room pair, booked hotel statuses, the Monchan quote and distillery URL. Browser visual verification was unavailable because the cmux socket was refused.
