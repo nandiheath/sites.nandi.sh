@@ -11,7 +11,7 @@ const days = [
   {date:'03.06',weekday:'SAT',place:'富良野',type:'抵達',title:'新千歲 → 富良野',hotel:'新富良野王子酒店',location:'Shin Furano Prince Hotel',steps:[['抵達','按航班前往巴士集合點','取齊行李及板袋，按預約憑證報到；機場巴士提早 15 分鐘集合。'],['巴士','Resort Liner 到酒店','自行預約定期巴士，不安排團體包車。2026–27 成人單程 ¥6,000；交通頁列正式班表及替代路線。'],['晚上','Check-in／試裝備','取單板、試雪鞋，確認明天教練及集合點。有時間才去 Ningle Terrace。']],note:'今天不排上雪。先按入境、取行李及集合緩衝選車，不必全團同班。'},
   {date:'03.07',weekday:'SUN',place:'富良野區',type:'SNOWBOARD 01',title:'富良野區 · 分組熱身',hotel:'新富良野王子酒店',location:'Furano Ski Resort',steps:[['上午','新手上堂／熟手熱身','新手預約單板教練；熟手先滑壓雪道。各組不用全程一起滑。'],['下午','按程度練習','新手先練煞停、轉彎及上落纜車；約定午飯和收板時間。'],['晚上','溫泉／酒店附近食飯','紫彩之湯放鬆；裝備晾乾，想食套餐就先訂位。']],note:'教練、租板及雪票未預訂。先確認 snowboard 課程，別誤訂 ski 班。'},
   {date:'03.08',weekday:'MON',place:'北之峰',type:'SNOWBOARD 02',title:'北之峰 · 按程度分線',hotel:'新富良野王子酒店',location:'Kitanomine Gondola Furano',steps:[['上午','北之峰區','先查連接雪道、纜車及返程。新手可留適合自己的練習區。'],['下午','自由分組','只滑開放路線。轉區前看清單板可能要步行的連接段。'],['晚上','執行李／確認還板','明天轉旭川。問清租板可否跨城攜帶及歸還安排。']],note:'樹林不等於可以隨便入；封閉區及能力以外的地形不去。'},
-  {date:'03.09',weekday:'TUE',place:'旭川',type:'REST / TRANSFER',title:'富良野 → 自選停靠 → OMO7',hotel:'OMO7 旭川',location:'OMO7 Asahikawa',steps:[['上午','退房／觀光包車出發','新富良野王子上車；人、箱和板袋同車，等候及停車先報價。'],['日間','景點＋午餐・三選一','美瑛風景／室內輕鬆／動物園都是提案，並非全部去；交通頁比較路線，先與車商敲定。'],['傍晚','OMO7 Check-in','目標約 15:00–16:00 到酒店，按雪況調整；確認明天雪場來回巴士和裝備。']],note:'動物園不是必去。停靠、午餐及改線條款預先確認；惡劣天氣可刪點或取消，整天休息不加夜滑。'},
+  {date:'03.09',weekday:'TUE',place:'旭川',type:'REST / TRANSFER',title:'富良野 → Perfume Trees Gin／自選停靠 → OMO7',hotel:'OMO7 旭川',location:'OMO7 Asahikawa',steps:[['上午','退房／Monchan Travel 巴士出發','Monchan Travel 約 ¥110,000 巴士報價；固定由新富良野王子到 OMO7，先確認車型、行李容量及停靠條款。'],['日間','Perfume Trees Gin／自選景點＋午餐','酒廠列入 3/9 候選停靠；中文／廣東話導賞能否安排 TBC。再按團體決定 A／B／C 路線，先確認開放、導賞、停留時間及費用。'],['傍晚','OMO7 Check-in','目標約 15:00–16:00 到酒店，按雪況調整；確認明天雪場來回巴士和裝備。']],note:'Monchan Travel 約 ¥110,000 只屬巴士報價，不是訂車確認。Perfume Trees Gin 停靠及中文／廣東話導賞仍待確認；按安全、時間及團體決定是否取代其他停靠。整天不加夜滑。'},
   {date:'03.10',weekday:'WED',place:'神居',type:'SNOWBOARD 03',title:'Kamui · 旭川第一個雪日',hotel:'OMO7 旭川',location:'Kamui Ski Links',steps:[['上午','搭預約接駁去神居','前一晚收齊裝備、看上車點。新手跟教練選緩坡。'],['下午','壓雪道／分組練習','固定午飯、收板及集合時間；預留還板、換鞋時間。'],['晚上','旭川食飯／Santa 可選','有體力才加 Santa 夜滑；另查營業時間並訂好來回車。']],note:'先訂回程，再決定滑到幾點。夜滑不是全團行程。'},
   {date:'03.11',weekday:'THU',place:'旭川周邊',type:'SNOWBOARD 04',title:'Flex day · 神居／比布／Santa',hotel:'OMO7 旭川',location:'Pippu Ski Resort',steps:[['前一晚','按程度分組','神居巡航、比布練習或 Santa 短時滑；交通和課程先確認。'],['日間','滑雪或市區休息','比布 3 月新手設施需重查。休息組留旭川逛街、咖啡或博物館。'],['晚上','決定明天去哪','高手組評估旭岳天氣、嚮導、裝備及回程；其他人神居或比布。']],note:'三個雪場是選項，不是同一天全去。'},
   {date:'03.12',weekday:'FRI',place:'神居／旭岳',type:'SNOWBOARD 05',title:'最後雪日 · 按雪況決定',hotel:'OMO7 旭川',location:'Asahidake Ropeway',steps:[['早上','查雪況及風','一般組神居／比布。旭岳只限能力、嚮導及安全條件齊備的高手組。'],['日間','最後一天上雪','不合條件就改普通雪場。旭岳風停、白茫及雪崩風險不能靠買票解決。'],['晚上','最後一餐／還板','提前訂位、執行李，各自核對明天機場巴士／JR 訂位及航班。']],note:'旭岳不是一般單板雪場；不安排新手或普通中級團員滑行。'},
@@ -26,8 +26,8 @@ document.querySelector('#app').innerHTML = `
 <main id="main" tabindex="-1">
 <section id="journey" class="page-section">
 <aside class="booking-alert" aria-labelledby="booking-alert-title">
-  <div class="booking-alert-copy"><p class="eyebrow">ACTION REQUIRED / 訂房通知</p><h2 id="booking-alert-title">富良野酒店已定案，請大家訂房</h2><p><strong>新富良野王子酒店 · 2027/3/6 入住 → 3/9 退房 · 3 晚</strong></p><p>今次用官方會員限時優惠，包早餐及溫泉券。請先登入／登記 Seibu Prince Global Rewards 會員，再選以上入住日期。</p><p class="booking-deadline">優惠截止：<time datetime="2026-09-15T12:00:00+09:00">2026/9/15 香港 11:00am · 日本 12:00 noon</time></p><p class="meta">房價及空房以官網為準；付款前核對房型、人數、稅費及取消條款。已訂房的團友先比較原訂單，唔使重複訂。</p></div>
-  <div class="booking-alert-action">${link(hotelPromoURL,'前往官方優惠訂房','button')}<span>會員限定 · 早餐 + 溫泉券</span></div>
+  <div class="booking-alert-copy"><p class="eyebrow">BOOKING STATUS / 訂房狀態</p><h2 id="booking-alert-title">兩間酒店已完成訂房</h2><p><strong>新富良野王子酒店 · 2027/3/6 入住 → 3/9 退房 · 3 晚</strong></p><p><strong>OMO7 旭川 · 2027/3/9 入住 → 3/13 退房 · 4 晚</strong></p><p>Peggy 同 Kit 共用同一房間，兩間酒店均已訂。全團住宿訂房已回報完成；請各人保留自己的訂單，出發前只核對入住姓名、日期、早餐、稅費及取消條款。</p><p class="meta">個別訂單、房型及房號不公開；酒店卡的官方連結只供查閱，唔需要重複訂房。</p></div>
+  <div class="booking-alert-action"><span class="tag green">BOOKED</span><span>Shin Furano Prince + OMO7</span></div>
 </aside>
 <div class="hero" id="snow-hero" data-playback="paused">
   <div class="hero-art" role="img" aria-label="冰藍色山脊與等高線的原創概念地形圖，非實際雪場地圖"></div>
@@ -73,16 +73,15 @@ function renderStays(){
     <div class="card-grid two hotel-grid">
       <article class="card hotel-card">
         <div class="hotel-art furano-art"><span>BASE 01 / FURANO</span><strong>SHIN FURANO<br>PRINCE</strong><small>已定案 · 富良野區 · Ski-in / Ski-out</small></div>
-        <div class="hotel-body"><span class="tag green">03.06 入住 → 03.09 退房 · 3 晚</span><h3>新富良野王子酒店</h3>
-          <ul class="detail-list"><li>富良野區上雪方便；北之峰要另查連接及接駁。</li><li>今次訂官方會員限時優惠：早餐及溫泉券。</li><li>2026/9/15 香港 11am（日本中午 12 點）截止；房價及空房以官網為準。</li><li>付款前確認房型、人數、稅費及取消條款。</li></ul>
+        <div class="hotel-body"><span class="tag green">03.06 入住 → 03.09 退房 · 3 晚 · 全團已訂</span><h3>新富良野王子酒店</h3>
+          <ul class="detail-list"><li>富良野區上雪方便；北之峰要另查連接及接駁。</li><li>全團住宿訂房已回報完成；各人保留自己的訂單，出發前核對姓名、房型、人數、早餐、稅費及取消條款。</li><li>Peggy 同 Kit 共用同一房間；實際房型及房號不公開。</li></ul>
           <div class="source-links">${link(hotelPromoURL,'官方訂房優惠')}${link('https://www.princehotels.com/shinfurano/','酒店官方')}${link(map('Shin Furano Prince Hotel'),'地圖')}</div>
-          <details><summary>改訂前注意</summary><p>先比較原訂單的早餐、稅費及取消成本，再決定是否改訂，避免重複訂房。私人訂房資料請直接與主辦人確認。</p></details>
         </div>
       </article>
       <article class="card hotel-card">
         <div class="hotel-art city-art"><span>BASE 02 / ASAHIKAWA</span><strong>OMO7<br>ASAHIKAWA</strong><small>星野集團 · 市區基地</small></div>
-        <div class="hotel-body"><span class="tag green">03.09 入住 → 03.13 退房 · 4 晚</span><h3>OMO7 旭川</h3>
-          <ul class="detail-list"><li>JR 旭川站步行約 13 分鐘；雪地拖箱建議的士。</li><li>一般 Check-in 15:00／Check-out 11:00，以訂單為準。</li><li>雪季巴士、租板及乾燥設施要確認 2026–27 安排。</li></ul>
+        <div class="hotel-body"><span class="tag green">03.09 入住 → 03.13 退房 · 4 晚 · 全團已訂</span><h3>OMO7 旭川</h3>
+          <ul class="detail-list"><li>JR 旭川站步行約 13 分鐘；雪地拖箱建議的士。</li><li>全團住宿訂房已回報完成；一般 Check-in 15:00／Check-out 11:00，以各自訂單為準。</li><li>Peggy 同 Kit 共用同一房間；實際房型及房號不公開。</li></ul>
           <div class="source-links">${link('https://hoshinoresorts.com/en/hotels/omo7asahikawa/','酒店官方')}${link(map('OMO7 Asahikawa'),'地圖')}</div>
           <details><summary>機場交通／未確認事項</summary><p>3/13 不安排團體直送，各自訂 JR 經札幌或 Taisetsu Liner 公共機場巴士。後者現行停酒店前，不是酒店 shuttle；2027 班次及箱＋板袋承運要重查。</p><p>房型、早餐及取消條款請直接向酒店確認。</p>${link('https://www.asahikawa-denkikidou.jp/taisetsu_liner/','機場巴士官方')}</details>
         </div>
