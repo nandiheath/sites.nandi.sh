@@ -2,11 +2,18 @@ import { renderTransport } from './transport.js';
 import { renderMountains } from './mountains.js';
 import { renderExplore } from './explore.js';
 import { initEffects } from './effects.js';
-import { members, renderMembers } from './members.js';
+import { members, roommatePairs, renderMembers } from './members.js';
 
 const hotelPromoURL = 'https://www.princehotels.co.jp/shinfurano/plan/limited-timesale-2026Sep/';
 const link = (url, label, cls = 'text-link') => `<a class="${cls}" href="${url}" target="_blank" rel="noopener noreferrer">${label}<span aria-hidden="true">↗</span></a>`;
 const map = query => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+const roomShareText = roommatePairs.map(([first, second]) => `${first} 同 ${second}`).join('、');
+const bookingSummary = column => {
+  const attendees = members.filter(member => member.attendance === 'O');
+  const booked = attendees.filter(member => member[column] === 'O').length;
+  const pending = attendees.filter(member => member[column] === '?').length;
+  return `${booked}/${attendees.length} 人已確認${pending ? `・${pending} 待確認` : ''}`;
+};
 const days = [
   {date:'03.06',weekday:'SAT',place:'富良野',type:'抵達',title:'新千歲 → 富良野',hotel:'新富良野王子酒店',location:'Shin Furano Prince Hotel',steps:[['抵達','按航班前往巴士集合點','取齊行李及板袋，按預約憑證報到；機場巴士提早 15 分鐘集合。'],['巴士','Resort Liner 到酒店','自行預約定期巴士，不安排團體包車。2026–27 成人單程 ¥6,000；交通頁列正式班表及替代路線。'],['晚上','Check-in／試裝備','取單板、試雪鞋，確認明天教練及集合點。有時間才去 Ningle Terrace。']],note:'今天不排上雪。先按入境、取行李及集合緩衝選車，不必全團同班。'},
   {date:'03.07',weekday:'SUN',place:'富良野區',type:'SNOWBOARD 01',title:'富良野區 · 分組熱身',hotel:'新富良野王子酒店',location:'Furano Ski Resort',steps:[['上午','新手上堂／熟手熱身','新手預約單板教練；熟手先滑壓雪道。各組不用全程一起滑。'],['下午','按程度練習','新手先練煞停、轉彎及上落纜車；約定午飯和收板時間。'],['晚上','溫泉／酒店附近食飯','紫彩之湯放鬆；裝備晾乾，想食套餐就先訂位。']],note:'教練、租板及雪票未預訂。先確認 snowboard 課程，別誤訂 ski 班。'},
@@ -73,15 +80,15 @@ function renderStays(){
     <div class="card-grid two hotel-grid">
       <article class="card hotel-card">
         <div class="hotel-art furano-art"><span>BASE 01 / FURANO</span><strong>SHIN FURANO<br>PRINCE</strong><small>已定案 · 富良野區 · Ski-in / Ski-out</small></div>
-        <div class="hotel-body"><span class="tag green">03.06 入住 → 03.09 退房 · 3 晚 · 全團已訂</span><h3>新富良野王子酒店</h3>
-          <ul class="detail-list"><li>富良野區上雪方便；北之峰要另查連接及接駁。</li><li>全團住宿訂房已回報完成；各人保留自己的訂單，出發前核對姓名、房型、人數、早餐、稅費及取消條款。</li><li>Peggy 同 Kit 共用同一房間；實際房型及房號不公開。</li></ul>
+        <div class="hotel-body"><span class="tag green">03.06 入住 → 03.09 退房 · 3 晚 · ${bookingSummary('furano')}</span><h3>新富良野王子酒店</h3>
+          <ul class="detail-list"><li>富良野區上雪方便；北之峰要另查連接及接駁。</li><li>公開確認狀態見「團友清單」；私人訂單資料不公開，出發前按各自訂單核對姓名、房型、人數、早餐、稅費及取消條款。</li><li>已知同房安排：${roomShareText}；實際房型及房號不公開。</li></ul>
           <div class="source-links">${link(hotelPromoURL,'官方訂房優惠')}${link('https://www.princehotels.com/shinfurano/','酒店官方')}${link(map('Shin Furano Prince Hotel'),'地圖')}</div>
         </div>
       </article>
       <article class="card hotel-card">
         <div class="hotel-art city-art"><span>BASE 02 / ASAHIKAWA</span><strong>OMO7<br>ASAHIKAWA</strong><small>星野集團 · 市區基地</small></div>
-        <div class="hotel-body"><span class="tag green">03.09 入住 → 03.13 退房 · 4 晚 · 全團已訂</span><h3>OMO7 旭川</h3>
-          <ul class="detail-list"><li>JR 旭川站步行約 13 分鐘；雪地拖箱建議的士。</li><li>全團住宿訂房已回報完成；一般 Check-in 15:00／Check-out 11:00，以各自訂單為準。</li><li>Peggy 同 Kit 共用同一房間；實際房型及房號不公開。</li></ul>
+        <div class="hotel-body"><span class="tag green">03.09 入住 → 03.13 退房 · 4 晚 · ${bookingSummary('omo')}</span><h3>OMO7 旭川</h3>
+          <ul class="detail-list"><li>JR 旭川站步行約 13 分鐘；雪地拖箱建議的士。</li><li>公開確認狀態見「團友清單」；私人訂單資料不公開，出發前按各自訂單核對姓名、房型、人數、早餐、稅費及取消條款。</li><li>已知同房安排：${roomShareText}；實際房型及房號不公開。</li></ul>
           <div class="source-links">${link('https://hoshinoresorts.com/en/hotels/omo7asahikawa/','酒店官方')}${link(map('OMO7 Asahikawa'),'地圖')}</div>
           <details><summary>機場交通／未確認事項</summary><p>3/13 不安排團體直送，各自訂 JR 經札幌或 Taisetsu Liner 公共機場巴士。後者現行停酒店前，不是酒店 shuttle；2027 班次及箱＋板袋承運要重查。</p><p>房型、早餐及取消條款請直接向酒店確認。</p>${link('https://www.asahikawa-denkikidou.jp/taisetsu_liner/','機場巴士官方')}</details>
         </div>
