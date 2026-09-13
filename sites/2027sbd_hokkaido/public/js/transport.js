@@ -19,6 +19,8 @@ const transportSources = {
     "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/event/event.html",
   ],
   perfumeTrees: ["Perfume Trees Gin｜官方網站", "https://www.perfumetreesgin.com/"],
+  tankyu: ["丹丘蒸留所｜官方導賞／語言／位置（2026/9/13 查）", "https://tankyudistillery.jp/en/tour"],
+  tankyuAbout: ["丹丘蒸留所｜Perfume Trees 創辦團隊", "https://tankyudistillery.jp/en/about"],
   zooAccess: [
     "旭山動物園｜官方交通與停車指引（2026）",
     "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/generalinformation/d053767.html",
@@ -135,11 +137,11 @@ const transportRoutes = [
   {
     id: "transfer",
     label: "03.09 包車遊覽轉場",
-    title: "新富良野王子 → Perfume Trees Gin／自選停靠 → OMO7",
+    title: "新富良野王子 → 丹丘蒸留所／自選停靠 → OMO7",
     tag: "固定起終點・景點未定案",
     duration: "先詢約 7–8 小時含停靠／午餐的貸切包車；依下方選項約 08:00–16:00 內安排，正式工時由車商確認",
     intro:
-      "Monchan Travel 已提供約 ¥110,000 巴士報價；起點新富良野王子、終點 OMO7 固定，中間先選一條候選路線，Perfume Trees Gin 可作額外候選停靠。要訂的是 private sightseeing charter／貸切觀光包車，不是按固定站行駛的 shuttle；尚未聯絡、取得正式報價或保留車位。",
+      "Monchan Travel 已提供約 ¥110,000 巴士報價；起點新富良野王子、終點 OMO7 固定，中間先選一條候選路線。Perfume Trees 團隊的丹丘蒸留所位於東川，可作額外候選停靠。要訂的是 private sightseeing charter／貸切觀光包車，不是按固定站行駛的 shuttle；報價不等於已保留車位，完整路線及包含項目仍待書面確認。",
     steps: [
       [
         "先定框架｜同一車連人及行李",
@@ -147,7 +149,7 @@ const transportRoutes = [
       ],
       [
         "三選一｜美瑛風景／室內輕鬆／動物園",
-        "下面是互相替代的提案，不是全部串起來。Perfume Trees Gin 可取代其中一個景點，或按車商批准加入；好天優先討論美瑛，怕冷可選室內為主，動物園只有全團選中才加入。午餐先確認星期二營業及分桌／團餐，不承諾全團即到即坐。",
+        "下面是互相替代的提案，不是全部串起來。丹丘蒸留所（Perfume Trees 團隊）可取代其中一個景點，或按車商批准加入；好天優先討論美瑛，怕冷可選室內為主，動物園只有全團選中才加入。午餐先確認星期二營業及分桌／團餐，不承諾全團即到即坐。",
       ],
       [
         "出發前覆核｜保留縮短及直送方案",
@@ -159,12 +161,12 @@ const transportRoutes = [
     fallback:
       "包車未訂成時，以直接轉酒店為備案：查當季 Lavender（新富良野王子 → 旭川），到站後安排 OMO7 接續交通。公共班車不會替本團多站等候，也不保證全團與板袋同班；先確認承運，不能拖到出發日才試。若選動物園線才另查 Powder Belt Liner。道路不安全時按營運方安排延遲／取消，不為趕入住硬走。",
     warning:
-      "所有路線時間是含冬季緩衝的主辦提案，不是司機車程承諾。Monchan Travel 約 ¥110,000 只屬報價快照，不代表已訂車或已付款；現行場館資料亦不等於 2027/3/9 保證營業。Perfume Trees Gin 導賞語言、停留及費用待確認，前晚重查；不臨時停在路肩或私人農地。",
+      "所有路線時間是含冬季緩衝的主辦提案，不是司機車程承諾。Monchan Travel 約 ¥110,000 只屬報價快照，不代表已訂車或已付款。丹丘現行星期二團是 16:00 韓語，與 15:00–16:00 到 OMO7 的目標衝突；需另詢較早中文／廣東話私人團，否則先同意改時間及加時費。2027/3/9 接待未確認，不臨時停路肩。",
     extra: `<section class="stack" aria-labelledby="transfer-options-heading">
-      <header><p class="eyebrow">MARCH 9 / THREE ALTERNATIVES + DISTILLERY</p><h3 id="transfer-options-heading">轉酒店，也可以是一日小旅行。</h3><p>建議先問 A 的報價，以 B 作怕冷／減少戶外的替代；C 留給想看動物的團友。Perfume Trees Gin 是額外候選停靠，可取代一個景點或按車商批准加入；<strong>不能無限加站，也不把 A、B、C 串起來。</strong>以下是日本時間的主辦估算，車程、停靠及 2027 營業須車商／場館確認。</p></header>
+      <header><p class="eyebrow">MARCH 9 / THREE ALTERNATIVES + DISTILLERY</p><h3 id="transfer-options-heading">轉酒店，也可以是一日小旅行。</h3><p>建議先問 A 的報價，以 B 作怕冷／減少戶外的替代；C 留給想看動物的團友。東川丹丘蒸留所（Perfume Trees 團隊）是額外候選停靠，可取代一個景點或按車商批准加入；<strong>不能無限加站，也不把 A、B、C 串起來。</strong>以下是日本時間的主辦估算，車程、停靠及 2027 營業須車商／場館確認。</p></header>
       <div class="card-grid">
         <article class="card stack"><span class="tag green">A / 好天優先討論</span><h4>白鬚瀑布 × 美瑛和牛午餐</h4><p>新富良野王子 → 白鬚瀑布 →〔青池可省略〕→ Farm Restaurant 千代田 → OMO7。景色＋正餐，戶外停留短一點，不追夜間點燈。</p>
-          <details open><summary>A 路線時間與午餐</summary><ol class="numbered-list"><li><strong>09:00 酒店出發</strong><p>先留 30 分鐘點人裝車；約 10:15–10:45 白鬚瀑布，從白金觀光中心停車區步行往橋上觀景。只走開放範圍；橋面可能結冰，穿防滑保暖鞋。</p></li><li><strong>10:50–11:20 青池・可刪</strong><p>只在道路、步道及停車安全且大家有興趣時短停；冬季可能只有雪景，看不到藍色水面。略過便增加午餐／交通緩衝，不加路邊拍照。</p></li><li><strong>12:00–13:15 千代田午餐</strong><p>美瑛和牛餐廳，觀光協會列 220 席、免費停車及全年營業（12/31–1/3 除外），但明示春冬詳細時間要另問。先訂 12–13 人分桌／團餐，核對套餐、飲食限制、價格和巴士停車；有座位數不等於當日有位。</p></li><li><strong>13:15 後往旭川</strong><p>預留道路及洗手間緩衝，約 15:00–16:00 OMO7；不等青池夜燈。午餐可替換為下方 cyai，但必須先有訂位。</p></li></ol></details>
+          <details open><summary>A 路線時間與午餐</summary><ol class="numbered-list"><li><strong>09:00 酒店出發</strong><p>先留 30 分鐘點人裝車；約 10:15–10:45 白鬚瀑布，從白金觀光中心停車區步行往橋上觀景。只走開放範圍；橋面可能結冰，穿防滑保暖鞋。</p></li><li><strong>10:50–11:20 青池・可刪</strong><p>只在道路、步道及停車安全且大家有興趣時短停；冬季可能只有雪景，看不到藍色水面。略過便增加午餐／交通緩衝，不加路邊拍照。</p></li><li><strong>12:00–13:15 千代田午餐</strong><p>美瑛和牛餐廳，觀光協會列 220 席、免費停車及全年營業（12/31–1/3 除外），但明示春冬詳細時間要另問。先訂 ${members.length} 人分桌／團餐，核對套餐、飲食限制、價格和巴士停車；有座位數不等於當日有位。</p></li><li><strong>13:15 後往旭川</strong><p>預留道路及洗手間緩衝，約 15:00–16:00 OMO7；不等青池夜燈。午餐可替換為下方 cyai，但必須先有訂位。</p></li></ol></details>
           <p><strong>費用：</strong>千代田官方觀光分類為 ¥2,000 以上預算，不是套餐報價；具體菜單另詢。青池停車自 2026/7/1 起，車長 ≥6m 巴士 ¥6,000／次、&lt;6m ¥1,000；讓車商確認車長及是否符合豁免，不自行假設免費。</p>
           <div class="source-links">${transportMap("白ひげの滝 美瑛", "白鬚瀑布")}${transportMap("ファームレストラン千代田 美瑛", "千代田午餐")}</div>
           <div class="source-links">${transportLink("shirahige")}${transportLink("chiyoda")}${transportLink("pondParking")}</div>
@@ -172,7 +174,7 @@ const transportRoutes = [
         <article class="card stack"><span class="tag">B / 室內為主</span><h4>芝士工房 × 旭川午餐 × 博物館</h4><p>新富良野王子 → 富良野芝士工房 → AEON 旭川站前午餐 → 旭川市博物館 → OMO7。適合想少受冷、喜歡食物及地方文化的人；不是暴風雪照行方案。</p>
           <details open><summary>B 路線時間與午餐</summary><ol class="numbered-list"><li><strong>08:30 酒店出發</strong><p>09:00–10:00 芝士工房看展示、買乳製品；不是已預約手作課。冬季現行 09:00–16:00、免費入場；Pizza 10:30 才開，這個時段不當午餐。</p></li><li><strong>10:00 後往旭川</strong><p>留冬季行車、司機休息及上落車緩衝，目標 12:15–13:15 在 AEON Mall 旭川站前 food court 各自點餐，拉麵／飯類按當季店舖選。</p></li><li><strong>13:45–14:45 旭川市博物館</strong><p>大雪 Crystal Hall 內的地方歷史文化展示；不是動物園，也不是科學館。看完約 15:00–16:00 到 OMO7。若閉館便午餐後直去酒店。</p></li></ol></details>
           <p><strong>星期二／費用：</strong>芝士工房列年末年初、1–2 月星期一及11月維護休館；博物館10–5月每月第2／4星期一休館，遇假日翌日及設備檢查另休。3/9 星期二正常規則可行，2027 臨時休館仍重查。博物館 09:00–17:00（16:30 截止入場），2026/10/1 起成人 <strong>¥440</strong>；同票種20人以上才有團體價，本團不套用。</p>
-          <p><strong>午餐：</strong>Food court 現行 09:00–21:00，個別店不同；價格按所選菜單，不保證13人同桌或可訂位，預備分組坐。請車商先確認商場及博物館合法巴士上落點／停車，不能在車站前臨停等候。</p>
+          <p><strong>午餐：</strong>Food court 現行 09:00–21:00，個別店不同；價格按所選菜單，不保證 ${members.length} 人同桌或可訂位，預備分組坐。請車商先確認商場及博物館合法巴士上落點／停車，不能在車站前臨停等候。</p>
           <div class="source-links">${transportMap("富良野チーズ工房", "芝士工房")}${transportMap("イオンモール旭川駅前", "站前 AEON 午餐")}${transportMap("旭川市博物館 大雪クリスタルホール", "旭川市博物館")}</div>
           <div class="source-links">${transportLink("cheese")}${transportLink("aeonDining")}${transportLink("aeon")}${transportLink("cityMuseum")}${transportLink("cityMuseumPrice")}</div>
         </article>
@@ -183,21 +185,21 @@ const transportRoutes = [
           <div class="source-links">${transportLink("zooDining")}</div>
         </article>
       </div>
-      <details class="card"><summary>Perfume Trees Gin 蒸餾所：中文／廣東話導賞 TBC</summary><p>3/9 可把 Perfume Trees Gin 列入轉場停靠；導賞語言、團體接待、開放時間、停留長度、費用及試飲限制均未確認。若加入，先與車商確認停靠／停車／等候時間，並取代其他景點或縮短路線。</p><p>Monchan Travel 約 ¥110,000 是目前提供的巴士報價，不代表包含酒廠停靠、導賞、停車、等候或門票；先取得書面明細，未確認前不當作已預約。</p><div class="source-links">${transportMap("Perfume Trees Gin", "Perfume Trees Gin")}${transportLink("perfumeTrees")}</div></details>
-      <details class="card"><summary>想食小店？cyai 午餐備選；為何不等青池夜燈？</summary><p><strong>cyai（美瑛市區）：</strong>觀光協會列午餐11:00–14:00 L.O.、星期日／一休息，可預約6–18人，適合先問12–13人同餐；不是已訂位。2027 菜單、價錢、巴士上落及免費停車是否適合車型均待確認。若未取得訂位，不以小店即場候位作全團方案。</p><p><strong>青池：</strong>美瑛町公布2026/10/22–2027/4/21點燈，3月18:00–21:00；積雪時看不到藍色水面。這次目標日間轉酒店，不等點燈。若想夜訪，就要另議較晚入住及包車加時，不能偷偷塞入七小時方案。</p><p>瀑布可用白金觀光中心公共停車區，但大型車停泊／回轉須確認；青池 ≥6m 車有獨立入口，不能把普通車停車資料當巴士承諾。所有午餐先問套餐、分桌及飲食限制；戶外停靠遇風雪／結冰可刪掉，安全直送亦須司機批准。</p><div class="source-links">${transportLink("cyai")}${transportLink("pondLights")}${transportMap("cyai 美瑛", "cyai 午餐備選")}</div></details>
+      <details class="card" open><summary>丹丘蒸留所（Tankyu／Perfume Trees 團隊）：星期二語言及時間要另議</summary><p><strong>位置已查核：</strong>Perfume Trees Gin 創辦團隊在東川的丹丘蒸留所，地址東川町西2号北23；不是旭川市中心店。官方不建議冬季步行前往，需車商核實巴士停泊及回轉；「10 輛車免費停車」不等於大巴已獲批准。</p><p><strong>2026/9/13 官網現行資料：</strong>導賞約 60 分鐘、每人 ¥2,000 含稅，含試飲；一般最遲前日 23:59 預約，小團名額有限，不能假設 ${members.length} 人同場。試飲只限 20 歲以上，司機不可飲酒。以上不是 2027/3/9 報價或可訂確認。</p><p><strong>3/9 是星期二：</strong>現行星期一／二 16:00 韓語，星期三／四 16:00 普通話，星期五 16:00／六 11:00 日語，星期日 11:00 英語；沒有列廣東話。先詢較早的中文／廣東話私人團及全團接待，未確認前仍 TBC。若參加 16:00 場，不能同時承諾 15:00–16:00 到 OMO7；要先同意較晚入住及車商加時，或放棄酒廠停靠。</p><p>Monchan Travel 約 ¥110,000 是目前提供的巴士報價，不代表包含酒廠停靠、導賞、停車、等候或門票；先取得書面明細，未確認前不當作已預約。</p><div class="source-links">${transportMap("丹丘蒸留所 東川町 西2号北23", "丹丘蒸留所・東川")}${transportLink("tankyu")}${transportLink("tankyuAbout")}${transportLink("perfumeTrees")}</div></details>
+      <details class="card"><summary>想食小店？cyai 午餐備選；為何不等青池夜燈？</summary><p><strong>cyai（美瑛市區）：</strong>觀光協會列午餐11:00–14:00 L.O.、星期日／一休息，可預約6–18人，可先問 ${members.length} 人同餐；不是已訂位。2027 菜單、價錢、巴士上落及免費停車是否適合車型均待確認。若未取得訂位，不以小店即場候位作全團方案。</p><p><strong>青池：</strong>美瑛町公布2026/10/22–2027/4/21點燈，3月18:00–21:00；積雪時看不到藍色水面。這次目標日間轉酒店，不等點燈。若想夜訪，就要另議較晚入住及包車加時，不能偷偷塞入七小時方案。</p><p>瀑布可用白金觀光中心公共停車區，但大型車停泊／回轉須確認；青池 ≥6m 車有獨立入口，不能把普通車停車資料當巴士承諾。所有午餐先問套餐、分桌及飲食限制；戶外停靠遇風雪／結冰可刪掉，安全直送亦須司機批准。</p><div class="source-links">${transportLink("cyai")}${transportLink("pondLights")}${transportMap("cyai 美瑛", "cyai 午餐備選")}</div></details>
     </section>
     <div class="card-grid">
       <article class="card"><p class="eyebrow">LOCAL OPERATOR</p><h4>富良野巴士</h4><p>先問 <strong>16 正座＋6 輔助座 microbus</strong>；官方有箱／高爾夫袋儲物空間，但沒有承諾 ${members.length} 個板袋。要求正式乘客座位及全部行李同時裝得下，不把輔助座當貨艙。</p><p>HiAce 頁面寫 12 正座、圖註 13 席，不能直接當本團一車方案。必要時問更大車；<strong>沒有公開固定價格，須按這條路線報價。</strong></p>${transportLinks(["furanoCharter", "furanoEnquiry"])}</article>
-      <article class="card"><p class="eyebrow">ENGLISH ENQUIRY</p><h4>SkyExpress</h4><p>Coaster 公布最多 <strong>15 乘客（不含司機）</strong>，行李上限 15 大箱＋<strong>10 ski bags</strong>＋10 小袋。若 ${members.length} 人各帶一板袋，已超公布板袋數；須書面確認 snowboard bags 實際裝載／較大車方案，不能直接付款當已足夠。</p><p>有英文辦公室支援，不代表英語司機已含。車款可替換；按下方冬季價目比較，並要求指定日期報價。</p>${transportLinks(["skyFleet", "skyPrice", "charter"])}</article>
+      <article class="card"><p class="eyebrow">ENGLISH ENQUIRY</p><h4>SkyExpress</h4><p>Coaster 公布最多 <strong>15 乘客（不含司機）</strong>，行李上限 15 大箱＋<strong>10 ski bags</strong>＋10 小袋。本團最多 ${members.length} 人，已超此車 15 人上限；若每人帶一板袋亦超公布板袋數；須書面確認 snowboard bags 實際裝載／較大車方案，不能直接付款當已足夠。</p><p>有英文辦公室支援，不代表英語司機已含。車款可替換；按下方冬季價目比較，並要求指定日期報價。</p>${transportLinks(["skyFleet", "skyPrice", "charter"])}</article>
       <article class="card"><p class="eyebrow">COMPARISON LEAD</p><h4>Social Bus</h4><p>可作第三個詢價入口。官方車隊頁未列可採信的乘客／板袋容量或固定價；須索取實際承運商、車型、貨艙照片與書面報價，不能當已確認可載全團。</p>${transportLinks(["social"])}</article>
     </div>
-    <article class="card"><p class="eyebrow">PRICE BENCHMARK / NOT A QUOTE</p><h4>彈性包車，大概要預幾多？</h4><p>SkyExpress 公布冬季（12–4 月，頁面未標年份）<strong>11 小時／9–15 人 ¥220,000 含稅</strong>，含司機、燃油、保險；冬季9小時欄沒有報價。這是日租比較基準，<strong>不是3/9任何一條路線的報價，不能按七小時比例折算</strong>。官網要求提供完整行程才能自訂報價，並未承諾任意改線。</p><p>另計過路費（網站建議每天預 ¥5,000–7,000，不代表此路線實收）、停車、可能的札幌／二世古區外接送費、司機住宿及超時。超時公布 ¥12,000／小時或不足一小時；請列清可用工時／里程、空車調度及司機休息的計費方式。</p><p><strong>主辦暫留 ¥230,000–300,000 全車預備金</strong>，不是市場保證價或上限。12人約 ¥19,200–25,000／人；13人約 ¥17,700–23,100／人，不含景點門票／餐費。各路線、加站或第二車／額外運板須另報，可能超出。富良野本地車商未必採同一收費。</p><p>現在可以保留候選景點，<strong>不可假設刪點就退款、改線不加價，或當天無限隨叫隨停</strong>。比較純接送、A／B／C含等候總價及允許替換清單。取得書面總價後，用<a class="text-link" href="#prepare">3/9 分攤試算</a>，不沿用舊三段包車總額。</p>${transportLinks(["skyPrice", "furanoEnquiry"])}</article>
-    <article class="card"><p class="eyebrow">BOOKING TIMELINE / 主辦建議</p><h4>先保留車輛框架，再敲定一條路線</h4><ol class="numbered-list"><li><strong>現在・2026/9：</strong>同一份固定起終點、7–8小時候選路線、12人確認／最多 ${members.length} 人及行李上限，問兩至三家3/9能否接單；同時問改線期限，並非先付一台「任去」的車。</li><li><strong>2026/10–11：</strong>比較車型／貨艙、各路線總價、改人數及取消條款；選一條主要路線＋可接受天氣替代，初步問午餐團餐／訂位。</li><li><strong>最遲目標2026/12–2027/1：</strong>按報價有效期付訂金／確認車位及包含的停靠，保留車商書面允許的修改範圍；未訂成便啟用直達酒店備案。</li><li><strong>按車商的路線截止；出發前1–2週及前晚：</strong>補名單與尺寸、確認餐廳／景點星期二營業、合法上落點、行李保管、司機聯絡及天氣。當日改動須批准，不延誤安全車程。</li></ol><p class="meta">以上是主辦工作目標，不是任何營運方的開售、截止或空車保證。</p></article>
+    <article class="card"><p class="eyebrow">PRICE BENCHMARK / NOT A QUOTE</p><h4>彈性包車，大概要預幾多？</h4><p>SkyExpress 公布冬季（12–4 月，頁面未標年份）<strong>11 小時／9–15 人 ¥220,000 含稅</strong>，含司機、燃油、保險；冬季9小時欄沒有報價。這是日租比較基準，<strong>不是3/9任何一條路線的報價，不能按七小時比例折算</strong>。官網要求提供完整行程才能自訂報價，並未承諾任意改線。</p><p>另計過路費（網站建議每天預 ¥5,000–7,000，不代表此路線實收）、停車、可能的札幌／二世古區外接送費、司機住宿及超時。超時公布 ¥12,000／小時或不足一小時；請列清可用工時／里程、空車調度及司機休息的計費方式。</p><p><strong>9–15 人價目只作舊容量方案比較，不是本團 ${members.length} 人可用車型或收款額。</strong>現有 Monchan Travel 約 ¥110,000 報價另行核實包含項目、座位及行李；不將另一車商的基準加到報價上。正式分攤按最終付款人數計算，不含另付景點門票／餐費。</p><p>現在可以保留候選景點，<strong>不可假設刪點就退款、改線不加價，或當天無限隨叫隨停</strong>。比較純接送、A／B／C含等候總價及允許替換清單。取得書面總價後，用<a class="text-link" href="#prepare">3/9 分攤試算</a>，不沿用舊三段包車總額。</p>${transportLinks(["skyPrice", "furanoEnquiry"])}</article>
+    <article class="card"><p class="eyebrow">BOOKING TIMELINE / 主辦建議</p><h4>先保留車輛框架，再敲定一條路線</h4><ol class="numbered-list"><li><strong>現在・2026/9：</strong>同一份固定起終點、7–8小時候選路線、${members.filter(member => member.attendance === 'O').length} 人確認／最多 ${members.length} 人及行李上限，問兩至三家3/9能否接單；同時問改線期限，並非先付一台「任去」的車。</li><li><strong>2026/10–11：</strong>比較車型／貨艙、各路線總價、改人數及取消條款；選一條主要路線＋可接受天氣替代，初步問午餐團餐／訂位。</li><li><strong>最遲目標2026/12–2027/1：</strong>按報價有效期付訂金／確認車位及包含的停靠，保留車商書面允許的修改範圍；未訂成便啟用直達酒店備案。</li><li><strong>按車商的路線截止；出發前1–2週及前晚：</strong>補名單與尺寸、確認餐廳／景點星期二營業、合法上落點、行李保管、司機聯絡及天氣。當日改動須批准，不延誤安全車程。</li></ol><p class="meta">以上是主辦工作目標，不是任何營運方的開售、截止或空車保證。</p></article>
     <details class="card"><summary>每站等候時，行李及停車怎樣處理？</summary><p>要求同一車全程等候、行李可留在鎖好車內的書面許可，問清保管／遺失責任及換車安排。貴重物品隨身，不靠小店或園內儲物櫃放全團板袋。</p><p>車商須核實每站巴士停泊、回轉、上落客點、申請及費用。若選動物園才另外確認園方巴士／團體程序；門票、餐費另付，停靠等候則列入包車報價。時間不足先刪點，不要求司機追時間。</p>${transportLinks(["zooAccess", "zooTickets"])}</details>`,
-    sources: ["furanoEnquiry", "charter", "skyPrice", "perfumeTrees", "zooBus", "lavender"],
+    sources: ["furanoEnquiry", "charter", "skyPrice", "tankyu", "perfumeTrees", "zooBus", "lavender"],
     maps: [
       ["新富良野プリンスホテル", "固定起點：新富良野王子"],
-      ["Perfume Trees Gin", "Perfume Trees Gin"],
+      ["丹丘蒸留所 東川町 西2号北23", "丹丘蒸留所（Perfume Trees 團隊）"],
       ["OMO7 旭川", "OMO7 旭川"],
     ],
   },
@@ -261,7 +263,7 @@ const transportRoutes = [
       ],
     ],
     guidance:
-      "Taisetsu 行李艙原則每人一件、≤0.25m³、長≤2m、重≤30kg；箱＋板袋屬多件，可能被拒，即使有座也須買票前取得承運同意。JR 一般每人最多兩件、每件≤30kg、三邊和≤250cm、長≤2m（特殊物品另有條件），板袋向 JR 確認；指定席不保證行李位，勿阻通道。",
+      "現行規則（2026/9 查，2027 承運須再確認）：Taisetsu 行李艙原則每人一件、≤0.25m³、長≤2m、重≤30kg；箱＋板袋屬多件，可能被拒，即使有座也須買票前取得承運同意。JR 一般每人最多兩件、每件≤30kg、三邊和≤250cm、長≤2m（特殊物品另有條件），板袋向 JR 確認；指定席不保證行李位，勿阻通道。",
     fallback:
       "按航空公司要求倒推：本頁建議國際線起飛前至少 3 小時、國內線前至少 2 小時到正確航廈，再額外留 1–2 小時冬季交通備援。做不到便改前晚住札幌／機場附近。前晚查 JR 及道路；兩者停運時聯絡航空公司和酒店，不硬趕。",
     warning:
@@ -278,22 +280,22 @@ const transportRoutes = [
 
 const charterEnquiry = `Subject: 9 March 2027 private sightseeing charter — Shin Furano Prince to OMO7, optional stops
 
-Hello, please quote ONE private sightseeing charter on Tuesday 9 March 2027, starting at Shin Furano Prince Hotel (Nakagoryo, Furano) and ending at OMO7 Asahikawa (6-jo-dori 9-chome). The endpoints are fixed; sightseeing and lunch stops are proposals, NOT confirmed. The current Monchan Travel quote is approximately JPY 110,000; please verify what it includes and treat it as a quote, not a booking. Asahiyama Zoo is OPTIONAL, not a required destination. Perfume Trees Gin is a requested candidate stop; a Chinese-speaking or Cantonese-speaking guide is TBC.
+Hello, please quote ONE private sightseeing charter on Tuesday 9 March 2027, starting at Shin Furano Prince Hotel (Nakagoryo, Furano) and ending at OMO7 Asahikawa (6-jo-dori 9-chome). The endpoints are fixed; sightseeing and lunch stops are proposals, NOT confirmed. The current Monchan Travel quote is approximately JPY 110,000; please verify what it includes and treat it as a quote, not a booking. Asahiyama Zoo is OPTIONAL, not a required destination. Tankyu Distillery in Higashikawa (founded by the Perfume Trees Gin team) is a requested candidate stop; an earlier Mandarin- or Cantonese-speaking private tour is TBC.
 
 Our public planning snapshot lists ${members.filter(member => member.attendance === 'O').length} attending and ${members.filter(member => member.attendance === '?').length} undecided, up to ${members.length} passengers. Please quote both confirmed and maximum group sizes. We will not drive ourselves. No airport transfers or daily resort transfers are requested in this enquiry.
 
-Please quote a direct hotel-to-hotel transfer separately from approximately 7-8 hours including up to two sightseeing stops and lunch, within roughly 08:00-16:00 subject to your winter-safe schedule. Please price the feasible alternatives separately, NOT combined into one day: A) Biei scenic stops and lunch; B) mainly indoor sightseeing and lunch; C) Asahiyama Zoo with lunch during the visit; D) Perfume Trees Gin distillery, with a Chinese-speaking or Cantonese-speaking guided tour if available, replacing another stop as needed. Please recommend specific workable stops and group lunch arrangements. We will agree ONE itinerary before travel.
+Please quote a direct hotel-to-hotel transfer separately from approximately 7-8 hours including up to two sightseeing stops and lunch, within roughly 08:00-16:00 subject to your winter-safe schedule. Please price the feasible alternatives separately, NOT combined into one day: A) Biei scenic stops and lunch; B) mainly indoor sightseeing and lunch; C) Asahiyama Zoo with lunch during the visit; D) Tankyu Distillery in Higashikawa (Perfume Trees Gin founders), with a Chinese-speaking or Cantonese-speaking guided tour if available, replacing another stop as needed. Please recommend specific workable stops and group lunch arrangements. We will agree ONE itinerary before travel.
 
 Candidate stops for feasibility and separate quotations:
 A) Depart hotel around 09:00; Shirahige Falls around 10:15; Blue Pond only as an optional short stop if winter access is safe (no evening illumination); lunch at Farm Restaurant Chiyoda around 12:00-13:15, or cyai in Biei only with a confirmed group reservation; OMO7 around 15:00-16:00.
 B) Depart around 08:30; Furano Cheese Factory 09:00-10:00; AEON Mall Asahikawa Station food court lunch around 12:15-13:15 (split seating); Asahikawa City Museum around 13:45-14:45; OMO7 around 15:00-16:00.
 C) Load/depart around 08:00-08:30; Asahiyama Zoo 10:30-13:30 including lunch at the Central Dining Hall if operating, depart by 14:00; OMO7 around 15:00.
-D) Include Perfume Trees Gin as a feasible distillery stop; please confirm opening hours, parking, group reception, duration, tasting rules and whether a Chinese-speaking or Cantonese-speaking guided tour can be arranged. Replace another stop or shorten the route as needed; do not assume it can be added without changing the 7-8 hour plan.
+D) Tankyu Distillery, Nishi 2-go Kita 23, Higashikawa (official tour: https://tankyudistillery.jp/en/tour). Current public Tuesday tour is Korean at 16:00; Mandarin is Wednesday/Thursday at 16:00, and Cantonese is not listed. Please check an earlier Mandarin/Cantonese private group tour, group capacity, coach parking, duration, tasting rules and 2027 availability. A 16:00 tour conflicts with arrival at OMO7 by 15:00-16:00: do not book it unless we approve later arrival and any overtime. Replace another stop or shorten the route as needed; do not assume it fits the 7-8 hour plan.
 These are organiser estimates, not confirmed timings or reservations. Please validate Tuesday/seasonal opening, coach access/parking and driving/break times, and suggest changes. Any meals, attraction admission, guide or reservations you arrange should be itemised separately; we do not assume these are included.
 
 Planning maximum: ${members.length} large suitcases + ${members.length} snowboard bags + day bags. Final counts, dimensions and weights will follow. Please provide usable passenger capacity EXCLUDING driver and simultaneous cargo capacity, vehicle class and cargo photos. We prefer everyone in one vehicle with luggage, without using aisles or exits. A seat count alone is insufficient; please propose a larger vehicle if needed. Quote any two-vehicle alternative separately for our approval.
 
-Please include waiting at all agreed sightseeing and lunch stops, bus parking/advance applications, and safe boarding points. If we choose the zoo, please confirm its entrance, bus procedures and winter operating hours. If we choose Perfume Trees Gin, please confirm the stop, guide language and fee separately. Can luggage remain in the locked vehicle throughout each visit? Please confirm custody/liability, whether the same vehicle waits, and how vehicle substitution is handled.
+Please include waiting at all agreed sightseeing and lunch stops, bus parking/advance applications, and safe boarding points. If we choose the zoo, please confirm its entrance, bus procedures and winter operating hours. If we choose Tankyu Distillery, please confirm the stop, guide language and fee separately. Can luggage remain in the locked vehicle throughout each visit? Please confirm custody/liability, whether the same vehicle waits, and how vehicle substitution is handled.
 
 Please itemise tax, tolls, parking, waiting, overtime, deadhead/out-of-area charges, any driver accommodation and luggage charges. State included hours/distance and when chargeable time starts/ends, including positioning and driver breaks. Please confirm the deadline for final stops, the permitted weather alternatives, and the approval process/cost for dropping, replacing or adding stops on the day. We do not assume unlimited on-demand changes or refunds for omitted stops. Confirm quote validity, deposit/payment schedule, cancellation and passenger-count changes, weather/road-closure terms, meeting instructions and the emergency-contact process.
 
@@ -301,8 +303,8 @@ This is a quotation request, not a booking confirmation. Thank you.`;
 
 export function renderTransport(container) {
   container.innerHTML = `
-    <header class="section-intro"><p class="eyebrow">TRANSPORT / 非自駕交通</p><h2 class="section-title">機場各自訂，3/9 一起轉場。</h2><p class="muted">3/6 定期機場巴士；3/9 Monchan Travel 約 ¥110,000 巴士報價，連 Perfume Trees Gin 候選停靠及中文／廣東話導賞 TBC；3/13 各自巴士／JR。每日雪場往返另外安排，以下未代訂任何車票或車輛。</p></header>
-    <div class="callout warning"><strong>規劃基準 · 公開名單快照</strong><p>${members.filter(member => member.attendance === 'O').length} 人出席、${members.filter(member => member.attendance === '?').length} 人待確認，最多 ${members.length} 人。3/9 Monchan Travel 約 ¥110,000 只屬報價，按乘客＋大箱＋板袋一起詢價，不能只看座位數。機場巴士按各自航班選班；資料查核 2026/9/4，已公布新季、現行參考和主辦估算分開標示。</p></div>
+    <header class="section-intro"><p class="eyebrow">TRANSPORT / 非自駕交通</p><h2 class="section-title">機場各自訂，3/9 一起轉場。</h2><p class="muted">3/6 定期機場巴士；3/9 Monchan Travel 約 ¥110,000 巴士報價，丹丘蒸留所（Perfume Trees 團隊・東川）候選停靠、較早中文／廣東話導賞 TBC；3/13 各自巴士／JR。每日雪場往返另外安排，以下未代訂任何車票或車輛。</p></header>
+    <div class="callout warning"><strong>規劃基準 · 公開名單快照</strong><p>${members.filter(member => member.attendance === 'O').length} 人出席、${members.filter(member => member.attendance === '?').length} 人待確認，最多 ${members.length} 人。3/9 Monchan Travel 約 ¥110,000 只屬報價，按乘客＋大箱＋板袋一起詢價，不能只看座位數。機場巴士按各自航班選班；原始查核 2026/9/4；機場線、OMO7 接駁、Taisetsu 及酒廠於 2026/9/13 重查，已公布新季、現行參考和主辦估算分開標示。</p></div>
     <div class="pill-row" role="group" aria-label="選擇交通路段">${transportRoutes.map((route, index) => `<button type="button" class="pill${index === 0 ? " active" : ""}" id="transport-button-${route.id}" data-transport-route="${route.id}" aria-pressed="${index === 0}" aria-controls="transport-route-panel">${route.label}</button>`).join("")}</div>
     <p class="meta" id="transport-route-status" role="status" aria-live="polite"></p>
     <div id="transport-route-panel" class="stack" role="region" aria-labelledby="transport-route-title"></div>
