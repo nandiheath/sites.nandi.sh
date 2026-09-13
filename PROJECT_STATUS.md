@@ -6,7 +6,7 @@
 - `sites/home/public/` owns the root page. Future `sites/<slug>/public/` packages publish below `/<slug>/` and appear automatically on the root page.
 - Cloudflare DNS is declared, applied, and verified from the private infrastructure repository.
 - SNS-M002 completed the trip implementation locally; SNS-M003 subsequently sanitized and published it. `sites/2027sbd_hokkaido/public/` owns the trip, with home-page discovery, concise Hong Kong copy, snowboard-focused content, a navy/ice-blue design and controllable snowfall/parallax.
-- 2026-09-12 local trip amendment: the public snapshot now has 14 listed travelers, all 14 attending, all listed two-hotel statuses booked, and PEGGY + KIT added as a room-share pair. March 9 now records the approximately JPY 110,000 Monchan Travel bus quote and Perfume Trees Gin as a candidate stop with Chinese/Cantonese guide availability TBC.
+- 2026-09-12 local trip amendment: the public snapshot now has 15 listed travelers, all 15 attending; 14 have both hotel statuses booked and GW is pending both hotel bookings. PEGGY + KIT remain a room-share pair. March 9 records the approximately JPY 110,000 Monchan Travel bus quote and Perfume Trees Gin as a candidate stop with Chinese/Cantonese guide availability TBC.
 
 ## Observed verification
 
@@ -59,5 +59,5 @@
 
 ## Next decisions
 
-- Publication policy: public trip through the existing Pages workflow. The current 14-name attendance/two-hotel snapshot and PEGGY + KIT room-share update are user-authorized for publication; private document URLs, booking references, contacts and dietary specifics remain excluded. Browser edits are local drafts, not shared updates. `noindex` is not access control.
+- Publication policy: public trip through the existing Pages workflow. The current 15-name attendance/two-hotel snapshot, GW's pending hotel status and PEGGY + KIT room-share update are user-authorized for publication; private document URLs, booking references, contacts and dietary specifics remain excluded. Browser edits are local drafts, not shared updates. `noindex` is not access control.
 - SNS-M006's five supplied roommate pairs remain authorized; the 2026-09-12 update adds PEGGY + KIT as the sixth pair and reports all listed two-hotel bookings complete. No hotel-specific room assignments are added.
