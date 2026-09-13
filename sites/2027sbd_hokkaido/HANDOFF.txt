@@ -71,3 +71,4 @@ CONTENT AMENDMENT — 2026-09-12 (HOMER REMOVAL)
 CONTENT AMENDMENT — 2026-09-12 (GW ADDED)
 - `public/js/members.js` adds GW as attending with `?/?` hotel statuses, meaning neither hotel booking is confirmed in the public snapshot.
 - Dynamic attendance and transport-enquiry totals now derive from 15 members; no room-share assignment is added for GW.
+- GW roster release: PR #22 merged as `5e225a31ec5e9b82e4dc5ad3d59d3cddfdd9e5ae`; validation run `34739526781`, main Pages workflow `34739560066` and Pages deployment `34739601192` succeeded. Live generation `bc0ff92454f3286954136e6f678ecee1eb38f9aa62a0016e03a74b3851a1208d` returned HTTP 200 and matched generated entry HTML plus main.js, members.js and transport.js byte-for-byte. Static live checks confirmed GW `O/?/?`, 15 members, 14 fully booked travelers, and no HOMER. Browser visual verification was unavailable because the cmux socket was refused.
