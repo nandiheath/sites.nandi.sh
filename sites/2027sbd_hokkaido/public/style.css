@@ -175,6 +175,11 @@ main { max-width: 1320px; padding: 29px 40px 0; margin: auto; scroll-margin-top:
 .card > p:last-child { margin-bottom: 0; }
 .card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 19px; margin-bottom: 23px; align-items: start; }
 .card-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.equipment-jumps { display: flex; flex-wrap: wrap; gap: 10px; margin: 23px 0; }
+.equipment-block { margin: 32px 0; scroll-margin-top: 85px; }
+.equipment-block > h3 { margin-bottom: 18px; }
+.equipment-block > .card + .card { margin-top: 19px; }
+.equipment-block .text-link { overflow-wrap: anywhere; }
 .card-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 15px; }
 .card-top h3 { margin: 0; }
 .card-top .eyebrow { margin-bottom: 0; }

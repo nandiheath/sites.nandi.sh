@@ -34,7 +34,7 @@ const mountainResorts = [
     ticketNote:
       "2025–26 通常期（2025/12/6–2026/3/22）：一日 ¥8,000、3 小時 ¥6,400、5 小時 ¥7,200。合資格 Prince 會員一日 ¥6,600，入住酒店不自動享有。",
     rental:
-      "官方 ATOMIC / Salomon：成人 snowboard 板＋雪鞋一日 ¥8,100、兩日 ¥13,600（2025–26）。衣物不包；提供身高、鞋碼，另問頭盔、跨區取還及能否帶離富良野。",
+      "本團富良野只建議新富良野王子酒店內 Sportpia 租借，完整地點／官方付款入口及取還限制見「租裝備・衣物」。板＋雪鞋和頭盔要分開確認；舊季價格不當成 2027 報價，先報體重、程度及鞋碼。",
     lesson:
       "由官方學校入口查成人 snowboard 班，訂位時確認教練語言、程度、師生比例、集合雪區及所需雪票。各校教學板種不同，不能用雙板課代替；2026–27 名額待確認。",
     access:
@@ -93,7 +93,7 @@ const mountainResorts = [
     ticketNote:
       "2025–26：一日 ¥3,800（附遊湯ぴっぷ入浴券）、4 小時 ¥3,000、4 小時加餐券 ¥3,600。泡湯另配合營業及回程。",
     rental:
-      "雪番屋：成人 snowboard 板＋雪鞋一日 ¥6,000、4 小時 ¥5,000（2025–26）；衣物、頭盔另計。尺碼及團體供應可致電 0166-85-3001。",
+      "雪番屋：成人 snowboard 板＋雪鞋一日 ¥6,000、4 小時 ¥5,000（2025–26）；衣物另計。官方價目未列頭盔，供應未核實，不可假設到場租到。尺碼及團體供應可致電 0166-85-3001。",
     lesson:
       "2027 三月成人 snowboard／外語課未核實。先經官方入口取得確認；未訂到教練的新手，改到已有課程的富良野或 Kamui。",
     access:
@@ -275,7 +275,7 @@ function mountainCard(resort) {
         <p><strong>Snowboard 板鞋及裝備</strong><br>${resort.rental}</p>
         <p><strong>${resort.id === "asahidake" ? "冬山嚮導" : "單板教練"}</strong><br>${resort.lesson}</p>
         <p><strong>交通</strong><br>${resort.access}</p>
-        <div class="source-links">${mountainLink(resort.rentalLink, resort.id === "asahidake" ? "官方・無租借與冬山警告" : "官方・租借說明")}${resort.id === "asahidake" ? "" : mountainLink(resort.lessonLink, "官方・課程查詢入口")}</div>
+        <div class="source-links"><a class="text-link" href="#equipment">租借地點・裝備選擇・衣物指南 ↗</a>${mountainLink(resort.rentalLink, resort.id === "asahidake" ? "官方・無租借與冬山警告" : "官方・租借說明")}${resort.id === "asahidake" ? "" : mountainLink(resort.lessonLink, "官方・課程查詢入口")}</div>
       </div>
     </details>
     <div class="source-links">
