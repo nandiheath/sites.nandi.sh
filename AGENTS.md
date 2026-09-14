@@ -27,3 +27,5 @@ This repository assembles independent static sites into one GitHub Pages artifac
 - Never commit `dist/`, credentials, custom-domain tokens, generated branches, or deployment state.
 - Pull requests validate only. Only a merged `main` commit may force-publish generated output to `gh-pages`.
 - Cloudflare DNS remains owned by the private infrastructure repository, not this public repository.
+- Every feature or fix update to a site MUST add a new dated entry to that site's changelog data before handoff. For `2027sbd_hokkaido`, update `sites/2027sbd_hokkaido/public/js/changelog.js`; keep the newest entries first so the homepage preview remains accurate.
+- The full changelog page and homepage preview MUST use the same changelog data; do not maintain duplicate change lists.

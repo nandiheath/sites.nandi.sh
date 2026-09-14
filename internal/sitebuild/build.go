@@ -109,24 +109,33 @@ func Build(root, output string) ([]Site, error) {
 // Opted-in entry documents stay at their stable route. All dependencies move
 // together, so relative ES-module imports and CSS URLs share one cache version.
 func versionAssets(target, urlPath string) error {
-	indexPath := filepath.Join(target, "index.html")
-	document, err := os.ReadFile(indexPath)
-	if err != nil {
-		return err
-	}
-	if !bytes.Contains(document, []byte(assetBaseMarker)) {
-		return nil
-	}
 	entries, err := os.ReadDir(target)
 	if err != nil {
 		return err
+	}
+	pages := make(map[string][]byte)
+	hasMarker := false
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.EqualFold(filepath.Ext(entry.Name()), ".html") {
+			continue
+		}
+		path := filepath.Join(target, entry.Name())
+		document, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		pages[entry.Name()] = document
+		hasMarker = hasMarker || bytes.Contains(document, []byte(assetBaseMarker))
+	}
+	if !hasMarker {
+		return nil
 	}
 	assets, err := os.MkdirTemp(target, ".assets-")
 	if err != nil {
 		return err
 	}
 	for _, entry := range entries {
-		if entry.Name() == "index.html" {
+		if _, isPage := pages[entry.Name()]; isPage {
 			continue
 		}
 		if err := os.Rename(filepath.Join(target, entry.Name()), filepath.Join(assets, entry.Name())); err != nil {
@@ -168,8 +177,13 @@ func versionAssets(target, urlPath string) error {
 	if err := os.Rename(assets, filepath.Join(target, "assets", version)); err != nil {
 		return err
 	}
-	document = bytes.ReplaceAll(document, []byte(assetBaseMarker), []byte(urlPath+"assets/"+version+"/"))
-	return os.WriteFile(indexPath, document, 0o644)
+	for name, document := range pages {
+		document = bytes.ReplaceAll(document, []byte(assetBaseMarker), []byte(urlPath+"assets/"+version+"/"))
+		if err := os.WriteFile(filepath.Join(target, name), document, 0o644); err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func discover(sitesDir string) ([]Site, error) {
