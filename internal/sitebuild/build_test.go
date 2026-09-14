@@ -111,6 +111,32 @@ func TestBuildVersionsTransitiveAssets(t *testing.T) {
 		t.Fatalf("unversioned asset still published: %v", err)
 	}
 }
+func TestBuildPreservesAdditionalHTMLPage(t *testing.T) {
+	root := t.TempDir()
+	writeSite(t, root, "home", "Home", "The root site", `<main>`+siteListMarker+`</main>`)
+	writeSite(t, root, "trip", "Trip", "Trip", `<script type="module" src="{{ASSET_BASE}}js/main.js"></script>`)
+	public := filepath.Join(root, "sites", "trip", "public")
+	if err := os.WriteFile(filepath.Join(public, "changelog.html"), []byte(`<script type="module" src="{{ASSET_BASE}}js/main.js"></script>`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.MkdirAll(filepath.Join(public, "js"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(public, "js", "main.js"), []byte(`export default "trip";`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+
+	if _, err := Build(root, filepath.Join(root, "dist")); err != nil {
+		t.Fatal(err)
+	}
+	page := readFile(t, filepath.Join(root, "dist", "trip", "changelog.html"))
+	if !strings.Contains(page, `src="/trip/assets/`) || strings.Contains(page, "{{ASSET_BASE}}") {
+		t.Fatalf("additional HTML page did not resolve assets: %s", page)
+	}
+	if _, err := os.Stat(filepath.Join(root, "dist", "trip", "assets")); err != nil {
+		t.Fatalf("versioned assets missing: %v", err)
+	}
+}
 
 func writeSite(t *testing.T, root, slug, title, description, index string) {
 	t.Helper()

@@ -398,6 +398,21 @@ progress::-moz-progress-bar { background: #78d0f8; }
 input[type=number], input[type=text], select, textarea { display: block; width: 100%; min-width: 0; border: 1px solid #3d5f78; border-radius: 4px; background: #081726; color: #cfe9f9; padding: 11px; margin-top: 8px; font-size: 14px; line-height: 1.7; }
 textarea { min-height: 150px; resize: vertical; }
 output { grid-column: 1 / -1; color: #a4e1ff; font: 500 25px/1.6 var(--mono); }
+.changelog-preview { margin: 46px 0 54px; }
+.changelog-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 22px; margin-bottom: 22px; }
+.changelog-heading h1, .changelog-heading h2 { margin-bottom: 8px; }
+.changelog-heading .button { flex-shrink: 0; }
+.changelog-grid, .changelog-list { display: grid; gap: 15px; }
+.changelog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.changelog-list { max-width: 920px; margin: 0 auto 50px; }
+.changelog-entry { padding: 22px 24px; }
+.changelog-entry-top { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 10px; }
+.changelog-entry time { color: #9ac9df; font: 10px var(--mono); letter-spacing: 1px; }
+.changelog-entry h3 { margin-bottom: 8px; font-size: 18px; }
+.changelog-entry p { margin-bottom: 8px; }
+.changelog-entry .changelog-detail { color: var(--muted); font-size: 12px; }
+.changelog-entry .text-link { font-size: 11px; }
+.changelog-page main { padding-bottom: 20px; }
 .site-footer { max-width: 1240px; padding: 27px 0 28px; margin: 46px auto 0; border-top: 1px solid #264057; }
 .footer-brand { display: inline-block; font: 11px var(--mono); letter-spacing: 1.5px; color: #b5d9ef; margin-bottom: 13px; text-decoration: none; }
 .site-footer p { font-size: 10px; color: #7494ae; margin-bottom: 5px; }
@@ -492,6 +507,9 @@ html[data-motion=on] .card:hover { border-color: #3d6686; box-shadow: 0 7px 23px
   .trip-stats > div > span:last-child { font-size: 9px; }
   .section-block { padding-top: 34px; }
   .section-intro { flex-wrap: wrap; align-items: flex-start; gap: 18px; margin-bottom: 21px; }
+  .changelog-heading { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .changelog-grid { grid-template-columns: 1fr; }
+  .changelog-page main { padding-top: 32px; }
   .section-title { font-size: 26px; letter-spacing: -.5px; }
   .section-intro .muted { font-size: 12px; }
   .section-intro > .button { font-size: 11px; padding: 10px 14px; }
