@@ -3,6 +3,20 @@ const prURL = number => `https://github.com/nandiheath/sites.nandi.sh/pull/${num
 
 export const changelog = [
   {
+    date: '2026-09-15',
+    kind: 'FEATURE',
+    title: '行程地圖新增放大按鈕',
+    summary: '一按放大富良野、旭川及機場一帶，再按返回全北海道。',
+    detail: '切換日期時保留放大狀態；支援鍵盤操作。',
+  },
+  {
+    date: '2026-09-15',
+    kind: 'FEATURE',
+    title: '北海道地圖連動每日行程',
+    summary: '以真實北海道海岸線取代示意輪廓，選日期即突出當日城市或區域。',
+    detail: '沿用深藍冰藍設計；富良野、旭川、機場及雪場按日標示，自由日與候選停靠以空心圈區分。',
+  },
+  {
     date: '2026-09-13',
     kind: 'FEATURE',
     title: '新增更新紀錄頁',
